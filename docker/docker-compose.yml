@@ -1,0 +1,25 @@
+version: "2"
+
+services:
+    web.voicelabs:
+        image: alias/voicelabs-web
+        links:
+            - psql.voicelabs
+        ports:
+            - "8080:80"
+
+    psql.voicelabs:
+        image: postgres
+#       volumes:
+#           - ./data/psql:/var/lib/postgresql/data
+        environment:
+            POSTGRES_USER: root
+            POSTGRES_PASSSWORD: root
+            POSTGRES_DB: VOICELAB_development
+
+#    adminer:
+#        image: adminer
+#        restart: always
+#        ports:
+#            - 8081:8080
+
