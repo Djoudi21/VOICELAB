@@ -1,0 +1,29 @@
+<div data-collapse="medium" data-animation="default" data-duration="400" class="nav-bar w-nav">
+  <div class="nav-container w-container">
+    <a href="/" class="brand w-nav-brand">
+      <div class="logo-text">ALIAS</div>
+      <div class="logo-info">UNLOCK YOUR DATA</div>
+    </a>
+    <div class="nav-bar-main">
+      <nav role="navigation" class="nav-menu w-nav-menu">
+        <a href="../how-is-work.html" class="nav-link w-nav-link">How is work</a>
+        <a href="../use-cases.html" class="nav-link w-nav-link">USE CASES</a>
+        <a href="../contact.html" class="nav-link w-nav-link">ABOUT US</a>
+        <div class="nav-bar-right">
+          <% if user_signed_in? %>
+            <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: "button ghost w-button"%>
+          <% else %>
+            <%= link_to 'LOGIN', new_user_session_path, class: "button ghost w-button" %>
+          <% end %>
+        </div>
+      </nav>
+      <div class="menu-button w-clearfix w-nav-button">
+        <div class="menu-icon">
+          <div class="menu-icon-line-top"></div>
+          <div class="menu-icon-line-middle"></div>
+          <div class="menu-icon-line-bottom"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
