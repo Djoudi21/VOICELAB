@@ -9,13 +9,7 @@
         <%= link_to 'COMMENT ÇA MARCHE', how_path, class: 'nav-link w-nav-link' %>
         <%= link_to 'NOS SOLUTIONS', usecases_path, class: 'nav-link w-nav-link' %>
         <%= link_to 'CONTACT', contact_path, class: 'nav-link w-nav-link' %>
-        <div class="nav-bar-right">
-          <% if user_signed_in? %>
-            <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: "button ghost w-button"%>
-          <% else %>
-            <%= link_to 'LOGIN', new_user_session_path, class: "button ghost w-button" %>
-          <% end %>
-        </div>
+        <%= link_to 'LOGIN', ' https://voicelabs.gdpr.dev/login/?redirect=%2Ftransfert%2F', class: "button ghost w-button" %>
       </nav>
       <div class="menu-button w-clearfix w-nav-button">
         <div class="menu-icon">

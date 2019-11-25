@@ -9,27 +9,11 @@
         data-video-urls="/app/assets/videos/video-transcode.mp/app/assets/videos/video-transcode.webm"
         class="background-video-voice w-background-video w-background-video-atom">
         <%= video_tag(["video-transcode.mp4", "video-transcode.webm"], autoplay: :autoplay, loop: :loop,) %>
-        <!--        <video
-          autoplay=""
-          loop=""
-          style="background-image:url('./video-poster-00001.jpg')"
-          muted=""
-          playsinline=""
-          data-wf-ignore="true"
-          data-object-fit="cover">
-          <source src="/app/assets/videos/video-transcode.mp4" data-wf-ignore="true">
-          <source src="/app/assets/videos/video-transcode.webm" data-wf-ignore="true">
-        </video> -->
         <div class="overlay-video blue">
           <div class="w-container">
             <div class="hero6-content">
               <div class="hero-usecase--text">
                 <%= image_tag("cfakepathlogo-blanc-530.png", height: "30", class: "image-11") %>
-                <!-- <img
-                  src="/app/assets/images/cfakepathlogo-blanc-530.png"
-                  height="30"
-                  alt=""
-                  class="image-11"> -->
                 <div class="sizejumbo-text sizejumbo-top-clear usecase-title">
                   La recherche Française sur l&#x27;iA ET les données vocales est en retard.
                 </div>
@@ -38,13 +22,8 @@
                 </p>
               </div>
               <div class="button-small white-small w-inline-block">
-                <% if user_signed_in? %>
-                  <%= link_to 'Faites que votre voix compte ET AIDEZ À LA RECHERCHE FRANÇAISE', transfert_path, class: "button-label" %>
-                <% else %>
-                  <%= link_to 'Faites que votre voix compte ET AIDEZ À LA RECHERCHE FRANÇAISE', new_user_registration_path, class: "button-label" %>
-                  <%= image_tag("chevron_right.svg", class: "button-arrow") %>
-                  <!--                     <img src="/app/assetiapp/assets/mages/chevron_right.svg" alt="" class="button-arrow"> -->
-                <% end %>
+                <%= link_to 'Faites que votre voix compte ET AIDEZ À LA RECHERCHE FRANÇAISE', ' https://voicelabs.gdpr.dev/login/?redirect=%2Ftransfert%2F', class: "button-label" %>
+                <%= image_tag("chevron_right.svg", class: "button-arrow") %>
               </div>
             </div>
           </div>
@@ -154,11 +133,6 @@
                       <div class="div-block-1042"></div>
                       <div class="div-block-1040">
                         <%= image_tag("Screenshot-2019-11-13-at-14.36.17.png", height: "20", class: "image-12") %>
-                        <!-- <img
-                          src="../images/Screenshot-2019-11-13-at-14.36.17.png"
-                          height="20"
-                          alt=""
-                          class="image-12"> -->
                         <div class="text-block-12">100K Heures</div>
                       </div>
                     </div>
@@ -166,11 +140,6 @@
                       <div class="div-block-1042 hide"></div>
                       <div class="div-block-1040">
                         <%= image_tag("google-icon.png", height: "50", class: "image-12") %>
-                        <!-- <img
-                            src="../images/Screenshot-2019-11-13-at-14.36.21_1Screenshot-2019-11-13-at-14.36.21.png"
-                            height="50"
-                            alt=""
-                            class="image-12"> -->
                         <div class="text-block-12">1M Heures</div>
                       </div>
                     </div>
@@ -179,9 +148,6 @@
                         <div class="div-block-1049">
                           <div class="div-block-1046">
                             <%= image_tag("https://uploads-ssl.webflow.com/5d526d292ca59aed659476ed/5dcc0da95894c7bcbdec622a_arrow_long_up.svg") %>
-                            <!-- <img
-                                  src="https://uploads-ssl.webflow.com/5d526d292ca59aed659476ed/5dcc0da95894c7bcbdec622a_arrow_long_up.svg"
-                                  alt=""> -->
                           </div>
                           <div data-w-id="a315c18b-3676-5537-6882-ccb3f442dcba" class="text-block-13">Grâce à vos contributions de données vocales
                           </div>
@@ -190,7 +156,6 @@
                       <div class="div-block-1050"></div>
                       <div class="div-block-1040">
                         <%= image_tag("french-flag-icon.png", height: "20", class: "image-12") %>
-                        <!-- <img src="../images/french-flag-icon.png" height="20" alt="" class="image-12"> -->
                         <div class="t1">900 Heures</div>
                       </div>
                     </div>
@@ -212,7 +177,6 @@
                   <div class="card-block-single inner-center">
                     <div class="fe03_icon">
                       <%= image_tag("https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d8632f0c18e9981_globe.svg") %>
-                      <!-- <img src="https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d8632f0c18e9981_globe.svg" alt=""> -->
                     </div>
                     <h3 class="title-h3">Pour tous</h3>
                     <p class="paragraph-alias">Permettre à l’écosystème français (et européen) de la voix d’être concurrentiel au niveau mondial face aux géants Américians et chinois...</p>
@@ -220,7 +184,6 @@
                   <div class="card-block-single inner-center">
                     <div class="fe03_icon">
                       <%= image_tag("https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d86322bdf8e9975_codepen.svg") %>
-                      <!-- <img src="https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d86322bdf8e9975_codepen.svg" alt=""> -->
                     </div>
                     <h3 class="title-h3">Une alternative</h3>
                     <p class="paragraph-alias">... Pour offrir une alternative aux propositions existantes en proposant  APIs et des services performants autour de la voix &quot;made in France&quot; ...</p>
@@ -228,7 +191,6 @@
                   <div class="card-block-single inner-center">
                     <div class="fe03_icon">
                       <%= image_tag("https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d8632ada78e99c8_thumbs-up.svg") %>
-                      <!-- <img src="https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d8632ada78e99c8_thumbs-up.svg" alt=""> -->
                     </div>
                     <h3 class="title-h3">French Voicetech</h3>
                     <p class="paragraph-alias">... Le Voice Lab favorise la création de technologies de reconnaissance vocale et de synthèse vocale en langue Française...</p>
@@ -236,7 +198,6 @@
                   <div id="w-node-fc491052e455-59ab2a37" class="card-block-single inner-center">
                     <div class="fe03_icon">
                       <%= image_tag("https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d863270d98e9985_mic.svg") %>
-                      <!--                <img src="https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d863270d98e9985_mic.svg" alt=""> -->
                     </div>
                     <h3 class="title-h3">Par vous, pour vous</h3>
                     <p class="paragraph-alias">... Développées dans le respect et l&#x27;éthique des intérêts des utilisateurs, français et européens et en conformité avec le RGPD</p>
@@ -247,15 +208,10 @@
                     <div class="t04_author_wrap">
                       <div class="t04_stars_wrap">
                         <%= image_tag("https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d863221b08e98c4_stars.svg", class: "t04_star") %>
-                        <!--            <img src="https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d863221b08e98c4_stars.svg" alt="" class="t04_star"> -->
                         <%= image_tag("https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d863221b08e98c4_stars.svg", class: "t04_star") %>
-                        <!--          <img src="https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d863221b08e98c4_stars.svg" alt="" class="t04_star"> -->
                         <%= image_tag("https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d863221b08e98c4_stars.svg", class: "t04_star") %>
-                        <!-- <img src="https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d863221b08e98c4_stars.svg" alt="" class="t04_star"> -->
                         <%= image_tag("https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d863221b08e98c4_stars.svg", class: "t04_star") %>
-                        <!-- <img src="https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d863221b08e98c4_stars.svg" alt="" class="t04_star"> -->
                         <%= image_tag("https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d863221b08e98c4_stars.svg", class: "t04_star") %>
-                        <!-- <img src="https://uploads-ssl.webflow.com/5d68f74b5d863299418e9858/5d68f74b5d863221b08e98c4_stars.svg" alt="" class="t04_star"> -->
                       </div>
                     </div>
                     <p class="t04_paragraph">«Le Voice Lab est une chance unique pour dynamiser l&#x27;écosystème du Vocal en France et fédérer nos énergies pour rayonner au niveau mondial. La France a la chance d&#x27;avoir d&#x27;immenses talents et nous nous devons de leur offrir une plateforme pour briller.»</p>
@@ -391,7 +347,6 @@
                   <div class="hero2-latest-copy">
                     <div id="w-node-4ee6e48701cb-59ab2a37" class="div-img-tab">
                       <%= image_tag("https://uploads-ssl.webflow.com/5d526d292ca59aed659476ed/5dcfd890033682327aeadd66_hi.svg", height: "50", class: "image-15") %>
-                      <!--  <img src="https://uploads-ssl.webflow.com/5d526d292ca59aed659476ed/5dcfd890033682327aeadd66_hi.svg" height="50" alt="" class="image-15"> -->
                       <div class="size5-text-copy-copy">
                         <p>ZONE DE compétition équitable</p>
                       </div>
@@ -429,8 +384,8 @@
                     <div class="app-card-01-3 center blue-copy">
                       <div class="fe02_card_titles">
                         <h3 class="fe02_h5-2 white big-copy-copy">PLATEFORME Alias de recuperation de donnnes et GESTION DE<br>
-                           CONSETMENENT <br>
-                          (PArtneaire) </h3>
+                           CONSENTEMENT <br>
+                        </h3>
                         <div class="fe02_text-2 blue">Portabilite RGPD </div>
                       </div>
                     </div>
@@ -482,7 +437,7 @@
                       <!-- <img src="../images/google-logo.dad2164f.png" alt="" class="icon-case"> -->
                       <div class="fe02_card_titles">
                         <h3 class="title-card-ex">1. Vous vous inscrivez à ALIAS</h3>
-                        <div class="label-card">Welcome in alias<br>
+                        <div class="label-card">Bienvenue à alias<br>
                         </div>
                       </div>
                     </div>
@@ -491,7 +446,7 @@
                       <!--                               <img src="../images/google-logo.dad2164f.png" alt="" class="icon-case"> -->
                       <div class="fe02_card_titles">
                         <h3 class="title-card-ex">4. Google reçoit votre demande et prépare vos données</h3>
-                        <div class="label-card">legal department<br>
+                        <div class="label-card">service juridique<br>
                         </div>
                       </div>
                     </div>
@@ -504,7 +459,7 @@
                       </div>
                       <div class="fe02_card_titles">
                         <h3 class="title-card-ex">7. LeVoiceLab reçoit les données et les télécharge sur votre nouvel appareil</h3>
-                        <div class="label-card">NEW DATA</div>
+                        <div class="label-card">NOUVELLES DONNÉES</div>
                       </div>
                     </div>
                     <div id="w-node-8ab014a17f2e-59ab2a37" class="case-card">
@@ -512,7 +467,7 @@
                       <!-- <img src="../images/download-4.jpeg" height="60" alt="" class="icon-case"> -->
                       <div class="fe02_card_titles">
                         <h3 class="fe02_h5-2">5. Google Home envoie vos données</h3>
-                        <div class="fe02_text-2">Database<br>
+                        <div class="fe02_text-2">Base de données<br>
                         </div>
                       </div>
                     </div>
@@ -521,7 +476,7 @@
                       <!-- <img src="../images/download-1.jpeg" width="55" alt="" class="icon-case"> -->
                       <div class="fe02_card_titles">
                         <h3 class="title-card-ex">3. Vous recevez un e-mail prêt à être renvoyé au service juridique de Google.</h3>
-                        <div class="label-card">ready to send<br>
+                        <div class="label-card">pret a envoyer<br>
                         </div>
                       </div>
                     </div>
@@ -546,7 +501,7 @@
                       <%= image_tag("download_1.jpeg", width: '55', class: "icon-case") %>
                       <div class="fe02_card_titles">
                         <h3 class="title-card-ex">6. Vous recevez vos données et donnez accès et consentement à Google</h3>
-                        <div class="label-card">Save on drive<br>
+                        <div class="label-card">Sauvegardez<br>
                         </div>
                       </div>
                     </div>
