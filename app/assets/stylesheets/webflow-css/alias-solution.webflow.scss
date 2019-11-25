@@ -1,3 +1,17 @@
+.white-colored {
+  color: white !important;
+}
+
+a {
+  color: black;
+}
+
+
+a:hover {
+  text-decoration: none;
+  color: #0060FF;
+}
+
 .w-layout-grid {
   display: -ms-grid;
   display: grid;
@@ -258,6 +272,7 @@
   transition-property: color, background-color, border-color;
   color: #fff;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .button.ghost:hover {
@@ -456,6 +471,7 @@
   background-color: #fff;
   color: #000;
   text-align: center;
+  display: flex;
 }
 
 .button-small.white-small.bt-small {
@@ -1791,8 +1807,8 @@
   min-height: 250px;
   padding: 5px;
   border-radius: 4px 4px 0px 0px;
-  background-image: url('../images/cfakepathlogo-blanc-530.png'), -webkit-gradient(linear, left top, left bottom, from(rgba(39, 118, 248, 0.8)), to(rgba(39, 118, 248, 0.8))), url('../images/voicelab.jpg');
-  background-image: url('../images/cfakepathlogo-blanc-530.png'), linear-gradient(180deg, rgba(39, 118, 248, 0.8), rgba(39, 118, 248, 0.8)), url('../images/voicelab.jpg');
+  background-image: url('/app/assets/images/cfakepathlogo-blanc-530.png'), -webkit-gradient(linear, left top, left bottom, from(rgba(39, 118, 248, 0.8)), to(rgba(39, 118, 248, 0.8))), url('/app/assets/images/voicelab.jpg');
+  background-image: url('/app/assets/images/cfakepathlogo-blanc-530.png'), linear-gradient(180deg, rgba(39, 118, 248, 0.8), rgba(39, 118, 248, 0.8)), url('/app/assets/images/voicelab.jpg');
   background-position: 50% 50%, 0px 0px, 50% 50%;
   background-size: 125px, auto, cover;
   background-repeat: no-repeat, repeat, no-repeat;
@@ -3593,9 +3609,13 @@
   text-align: center;
   letter-spacing: 1px;
 }
+.btn-disabled {
+  opacity: 0.4;
+}
 
 .import-bt-drive.blue {
   background-color: #05f;
+  border-radius: 4px;
 }
 
 .import-bt-drive.blue:hover {

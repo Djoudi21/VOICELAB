@@ -3,50 +3,48 @@
     <div class="w-layout-grid hero-1">
       <div id="w-node-d2113197e2f9-edabcf65" class="hero-1-left">
         <div class="txt-hero-1">
-          <div class="title-hero">Welcome back</div>
-          <p class="paragraph-alias max-hero">Your personal data is your digital capital, but today they are locked into many platforms. Alias wallet helps you import all your personal data, protect them, visualize them, manage them and monetize them to unlock all their value.</p>
+          <div class="title-hero">Bienvenue</div>
+          <p class="paragraph-alias max-hero">Vos données pesonelles constituent votre capital digital, mais aujourd'hui il se trouvent bloqué dans plusieurs platformes. Alias wallet vous aide à les importer, à les protéger, à les visualiser, à les gérer et à les monétiser pour libérer toute leur valeur.</p>
         </div>
-        <a data-w-id="d75b698c-4d8e-0da8-8579-d2113197e2ff" href="use-cases.html" class="button-small white-small w-inline-block">
-          <div class="button-label">EXPLORE OUR USE CASES</div>
-          <img src="images/chevron_right.svg" alt="" class="button-arrow"></a>
-      </div>
-      <div class="hero-2-right">
-        <div class="card-container-login padding-in-25 shadow r-9">
-          <div class="div-google-sign">
-            <h2 class="heading-12"><strong>Login</strong></h2>
-            <p class="m-b-20-2">Sign in to your account to continue.</p>
-            <div class="w-layout-grid grid-5 m-b-40">
-              <a href="#" id="w-node-696df0a43de6-edabcf65" class="bt-main big-bt w-button">Connect with google</a>
-            </div>
+        <%= link_to 'EXPLOREZ NOS SOLUTIONS', usecases_path, class: 'button-small white-small w-inline-block' %>
+        <img src="images/chevron_right.svg" alt="" class="button-arrow"></a>
+    </div>
+    <div class="hero-2-right">
+      <div class="card-container-login padding-in-25 shadow r-9">
+        <div class="div-google-sign">
+          <h2 class="heading-12"><strong>S'inscrire</strong></h2>
+          <div class="w-layout-grid grid-5 m-b-40">
+            <%= link_to "S'inscrire avec Google", user_google_oauth2_omniauth_authorize_path %>
           </div>
-          <div class="w-form">
-            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="div-field m-b-20">
-                <%= f.input :email,
+        </div>
+        <div class="w-form">
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="div-field m-b-20">
+              <%= f.input :email,
           required: false,
           autofocus: true,
           input_html: { autocomplete: "email" },
           class: "text-field-3 w-input" %>
-              </div>
-              <div class="div-field m-b-20">
-                <%= f.input :password,
+            </div>
+            <div class="div-field m-b-20">
+              <%= f.input :password,
                   required: false,
                   input_html: { autocomplete: "current-password" },
                   class: "text-field-3 w-input" %>
-                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-              </div>
-              <div class="div-field m-b-20">
-                <%= f.button :submit, "Log in", class: "button_p-2 w-button" %>
-              </div>
-              <div class="div-block-1018">
-                <%= link_to 'Lost password?', new_user_password_path, class: 'link-4' %>
-                <%= link_to 'Not register ? Create an account', new_user_registration_path, class: 'link-3' %>
-              </div>
-            <% end %>
-          </div>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+            <div class="div-field m-b-20">
+              <%= f.button :submit, "Log in", class: "button_p-2 w-button" %>
+            </div>
+            <div class="div-block-1018">
+              <%= link_to 'Mot de passe perdu?', new_user_password_path, class: 'link-4' %>
+              <%= link_to 'Toujours pas inscrit ? Créer un compte', new_user_registration_path, class: 'link-3' %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 <script src="/app/assets/javascripts/webflow.js" type="application/javascript"></script>

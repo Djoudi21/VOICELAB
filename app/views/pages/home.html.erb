@@ -37,11 +37,11 @@
                   <br>
                 </p>
               </div>
-              <div class="">
+              <div class="button-small white-small w-inline-block">
                 <% if user_signed_in? %>
-                  <%= link_to 'Faites que votre voix compte ET AIDER À LA RECHERCHE FRANçaise', transfert_path, class: "button-small white-small w-inline-block" %>
+                  <%= link_to 'Faites que votre voix compte ET AIDEZ À LA RECHERCHE FRANÇAISE', transfert_path, class: "button-label" %>
                 <% else %>
-                  <%= link_to 'Faites que votre voix compte ET AIDER À LA RECHERCHE FRANçaise', new_user_registration_path, class: "button-small white-small w-inline-block" %>
+                  <%= link_to 'Faites que votre voix compte ET AIDEZ À LA RECHERCHE FRANÇAISE', new_user_registration_path, class: "button-label" %>
                   <%= image_tag("chevron_right.svg", class: "button-arrow") %>
                   <!--                     <img src="/app/assetiapp/assets/mages/chevron_right.svg" alt="" class="button-arrow"> -->
                 <% end %>
@@ -399,10 +399,10 @@
                   </div>
                 </div>
                 <div class="div-block-1027">
-                  <a data-w-id="db02e88a-93cc-1512-f627-b7ae90040033" href="#" class="button-small white-small bt-small w-inline-block">
-                    <div class="button-label">JE CONTRIBUE</div>
+                  <div class="button-small white-small bt-small w-inline-block white-colored">
+                    <%= link_to 'JE CONTRIBUE', class: "button-label" %>
                     <%= image_tag("mic.svg", width: "20", class: "button-arrow") %>
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>

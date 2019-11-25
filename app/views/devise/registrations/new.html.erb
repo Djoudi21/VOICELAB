@@ -1,25 +1,53 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
+<div class="section hero">
+  <div class="container w-container">
+    <div class="w-layout-grid hero-1">
+      <div id="w-node-d2113197e2f9-edabcf65" class="hero-1-left">
+        <div class="txt-hero-1">
+          <div class="title-hero">Bienvenue</div>
+          <p class="paragraph-alias max-hero">Vos données pesonelles constituent votre capital digital, mais aujourd'hui il se trouvent bloqué dans plusieurs platformes. Alias wallet vous aide à les importer, à les protéger, à les visualiser, à les gérer et à les monétiser pour libérer toute leur valeur.</p>
+        </div>
+        <%= link_to 'EXPLOREZ NOS SOLUTIONS', usecases_path, class: 'button-small white-small w-inline-block' %>
+        <img src="images/chevron_right.svg" alt="" class="button-arrow"></a>
+    </div>
+    <div class="hero-2-right">
+      <div class="card-container-login padding-in-25 shadow r-9">
+        <div class="div-google-sign">
+          <h2 class="heading-12"><strong>S'inscrire</strong></h2>
+          <div class="w-layout-grid grid-5 m-b-40">
+            <%= link_to "S'inscrire avec Google", user_google_oauth2_omniauth_authorize_path %>
+          </div>
+        </div>
+        <div class="w-form">
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+            <div class="div-field m-b-20">
+              <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
+                input_html: { autocomplete: "email" },
+                class: "text-field-3 w-input"%>
+            </div>
+            <div class="div-field m-b-20">
+              <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+                input_html: { autocomplete: "new-password" },
+                class: "text-field-3 w-input" %>
+            </div>
+            <div class="div-field m-b-20">
+            </div>
+            <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password" },
+                class: "text-field-3 w-input" %>
+            <div class="div-field m-b-20">
+              <%= f.button :submit, "Sign up", class: "button_p-2 w-button" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+</div>
+<script src="/app/assets/javascripts/webflow.js" type="application/javascript"></script>

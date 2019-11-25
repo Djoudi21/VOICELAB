@@ -1,0 +1,73 @@
+<body class="body">
+  <div class="custom-body">
+    <div class="section intro-hero-2">
+      <div class="container w-container">
+        <div class="w-layout-grid hero6-grid">
+          <div id="w-node-762838a6c782-b1edf646" class="hero6-content">
+            <div class="hero6-text">
+              <div class="sizejumbo-text sizejumbo-top-clear">NOTRE SOLUTION</div>
+              <p class="paragraph-alias max">Solution adaptée pour les utilisateurs mais aussi pour la recherche ou les startups. Nous collaborons pour l'evolution de la donnée, dans la transparence et leur respect.</p>
+            </div>
+            <div class="button-small white-small w-inline-block">
+              <% if user_signed_in? %>
+                <%= link_to 'UTILISEZ ALIAS ET RECUPEREZ VOS DONNÉES', transfert_path, class: "button-label" %>
+              <% else %>
+                <a href="#solutions" class="button-label">UTILISEZ ALIAS ET RECUPEREZ VOS DONNÉES</a>
+                <%= image_tag("chevron_right.svg", class: "button-arrow") %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="container padding-80 w-container">
+        <div class="grid-basic">
+          <div id="w-node-762838a6c78f-b1edf646" class="intro-left-wrap">
+            <div class="text-label">SOLUTION SIMPLE A UTILISER</div>
+            <div class="title-section">Solution adaptée</div>
+            <p class="paragraph-alias">
+              Vous devez pour récuperer vos données les reclamer aux platformes qui les detiennent. Le problème est qu'il est souvent légalement difficile de le faire. C'est pourquoi Alias vous propose une solution qui peut etre adaptée à a vos besoins selon chaue platforme. Ce qu'il vous reste ensuite à faire est d'envoyer votre demande et d'attendre vos données.</p>
+          </div>
+          <div id="w-node-762838a6c796-b1edf646">
+            <%= image_tag("undraw_social_dashboard_k3pt.svg", class: "image-10") %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div id="solutions" class="w-container">
+        <div class="use-case-grid">
+          <div class="partner-card">
+            <div class="partner-card-img"></div>
+            <div class="partner-card-text-zone">
+              <div class="text-label">RECHERCHE FRANCAISE</div>
+              <div class="title-h3">LE Voicelab</div>
+              <p class="paragraph-alias">
+                Contribuez à l'amélioration de la recherche sur l'intelligence en langue française en partageant vos données avec le VOICELAB.La donnée voix de votre Google Home et autres assistants personnels est précieuse. Réclamez une copie de ces données grace a votre droit a la protabilité (RGPD) et ontribuez à l'ecosystème français de la teh ologie de la voix.</p>
+              <div class="uc_link_block w-inline-block">
+                <%= link_to 'PARTICIPEZ A LA RECERCHE SUR LA VOIX', root_path, class: "uc_link" %>
+              </div>
+            </div>
+          </div>
+          <div class="partner-card">
+            <div class="partner-card-img p2"></div>
+            <div class="partner-card-text-zone">
+              <div class="text-label">TRANSFERT</div>
+              <div class="title-h3">VOS DONNÉES DE VOTRE MONTRE CONNECTÉE</div>
+              <p class="paragraph-alias">
+                You have spent hours gathering data to track your activity but this data is stucked into your device. New regulations (GDPR) enable you to take it back and transfer it to your new app or device and keep track of your past performance in a seamless experience without vendor lock-in. And it&#x27;s free.qfqfffffffffffffffffffffffffffffffdddddddddddddddddddddddddd</p>
+              <div class="uc_link_block w-inline-block">
+                <%= link_to 'TRANSFERT DE MA DONNÉE', tracking_path, class: "uc_link" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="/app/assets/javascripts/webflow.js" type="application/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+</body>
+</html>

@@ -52,10 +52,11 @@
             <p class="paragraph-alias">Veuillez choisir votre service préféré pour stocker vos données.</p>
           </div>
           <div class="cta07_button_wrap">
-            <a href="#" class="import-bt w-button">LOCAL</a>
-            <a href="#" class="import-bt-drive blue w-button">DROPBOX</a>
-            <button id="gdrive" type="submit" class="import-bt-drive blue w-button">GOOGLE DRIVE</button>
-          </div>
+            <%= button_tag 'LOCAL', dsiabled: true, class:"import-bt-drive blue w-button btn-disabled" %>
+            <%= button_tag 'DROPBOX', dsiabled: true, class:"import-bt-drive blue w-button btn-disabled" %>
+            <%= button_tag 'GOOGLE DRIVE', class:"import-bt-drive blue w-button" %>
+            <!--             <button id="gdrive" type="submit" class="import-bt-drive blue w-button">GOOGLE DRIVE</button>
+ -->          </div>
         </div>
       </div>
       <div>
@@ -171,13 +172,17 @@
         </div>
         <div class="cta01_container">
           <h2 class="cta01_h2-2">Ouvrir mon application de messagerie</h2>
-          <div class="div-img-tab"><a href="https://mail.google.com/mail/u/0/" target="_blank" class="bt-mail w-button">Gmail </a><a href="https://outlook.live.com/" target="_blank" class="bt-mail w-button">HOTMAIL</a><a href="https://login.yahoo.com" target="_blank" class="bt-mail w-button">Yahoo</a></div>
+          <div class="div-img-tab">
+            <a href="https://mail.google.com/mail/u/0/" target="_blank" class="bt-mail w-button">Gmail </a>
+            <a href="https://outlook.live.com/" target="_blank" class="bt-mail w-button">HOTMAIL</a>
+            <a href="https://login.yahoo.com" target="_blank" class="bt-mail w-button">Yahoo</a>
+          </div>
         </div>
       </div>
     </div>
     <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script type="applicaton/javascript" src="/app/assets/javascripts/webflow.js"></script>
-    <script type="applicaton/javascript" src="/app/assets/javascripts/index.js"></script>
+    <!--     <script type="applicaton/javascript" src="/javascripts/webflow.js"></scri -->pt>
+    <script type="applicaton/javascript" src="/javascripts/index.js"></script>
     <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
   </body>
 </html>
