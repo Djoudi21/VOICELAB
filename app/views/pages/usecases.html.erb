@@ -9,12 +9,8 @@
               <p class="paragraph-alias max">Solutions adaptées pour les utilisateurs mais aussi pour la recherche ou les startups. Nous collaborons pour l'evolution de la donnée, dans la transparence et leur respect.</p>
             </div>
             <div class="button-small white-small w-inline-block">
-              <% if user_signed_in? %>
-                <%= link_to 'UTILISEZ ALIAS ET RECUPEREZ VOS DONNÉES', transfert_path, class: "button-label" %>
-              <% else %>
-                <a href="#solutions" class="button-label">UTILISEZ ALIAS ET RECUPEREZ VOS DONNÉES</a>
-                <%= image_tag("chevron_right.svg", class: "button-arrow") %>
-              <% end %>
+              <%= link_to 'UTILISEZ ALIAS ET RECUPEREZ VOS DONNÉES', transfert_path, class: "button-label" %>
+              <%= image_tag("chevron_right.svg", class: "button-arrow") %>
             </div>
           </div>
         </div>

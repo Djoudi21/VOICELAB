@@ -10,12 +10,8 @@
               <p class="paragraph-alias max">You love running and biking but your activity history is locked into your old device?</p>
             </div>
             <div class="button-small white-small w-inline-block">
-              <% if user_signed_in? %>
-                <%= link_to 'UTILISEZ ALIAS ET LIBEREZ VOS DONNÉES', device_path, class: "button-label" %>
-              <% else %>
-                <%= link_to 'Faites que votre voix compte ET AIDER À LA RECHERCHE FRANçaise', new_user_registration_path, class: "button-label" %>
-                <%= image_tag("chevron_right.svg", class: "button-arrow") %>
-              <% end %>
+              <%= link_to 'UTILISEZ ALIAS ET LIBEREZ VOS DONNÉES', device_path, class: "button-label" %>
+              <%= image_tag("chevron_right.svg", class: "button-arrow") %>
             </div>
           </div>
         </div>

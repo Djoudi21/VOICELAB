@@ -1,15 +1,12 @@
-.white-colored {
-  color: white !important;
+.white-link {
+  color: #fff;
 }
 
-a {
+.black-link {
   color: black;
 }
-
-
 a:hover {
   text-decoration: none;
-  color: #0060FF;
 }
 
 .w-layout-grid {
@@ -561,6 +558,7 @@ a:hover {
 
 .div-field.m-b-20 {
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .div-block-1022 {

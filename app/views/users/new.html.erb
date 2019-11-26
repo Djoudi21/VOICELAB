@@ -1,0 +1,45 @@
+<div class="section hero">
+  <div class="container w-container">
+    <div class="w-layout-grid hero-1">
+      <div id="w-node-d2113197e2f9-edabcf65" class="hero-1-left">
+        <div class="txt-hero-1">
+          <div class="title-hero">Bienvenue</div>
+          <p class="paragraph-alias max-hero">Vos données pesonelles constituent votre capital digital, mais aujourd'hui il se trouve bloqué dans plusieurs plateformes. Alias wallet vous aide à les importer, à les protéger, à les visualiser, à les gérer et à les monétiser pour libérer toute leur valeur.</p>
+        </div>
+      </div>
+      <div class="hero-2-right">
+        <div class="card-container-login padding-in-25 shadow r-9">
+          <div class="div-google-sign">
+            <h2 class="heading-12"><strong>Essayez la version Beta</strong></h2>
+            <p class="m-b-20-2">Enrez les infomrations demandées et recevez rapidement un acces a notre version beta.</p>
+          </div>
+          <div class="w-form">
+            <%= simple_form_for @user do |f| %>
+              <div class="div-field m-b-20">
+                <%= f.input :email,
+          autofocus: true,
+          label: 'Votre email',
+          class: "text-field-3 w-input" %>
+              </div>
+              <div class="div-field m-b-20">
+                <%= f.input :first_name,
+                  autofocus: true,
+                  label: 'Votre prénom',
+                  class: "text-field-3 w-input" %>
+              </div>
+              <div class="div-field m-b-20">
+                <%= f.input :last_name,
+                  autofocus: true,
+                  label: 'Votre nom',
+                  class: "text-field-3 w-input" %>
+              </div>
+              <div class="div-field m-b-20">
+                <%= f.button :submit, "Validez", class: "button_p-2 w-button" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
