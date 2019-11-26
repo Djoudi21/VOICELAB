@@ -6,6 +6,9 @@
           <div class="title-hero">Bienvenue</div>
           <p class="paragraph-alias max-hero">Vos données pesonelles constituent votre capital digital, mais aujourd'hui il se trouve bloqué dans plusieurs plateformes. Alias wallet vous aide à les importer, à les protéger, à les visualiser, à les gérer et à les monétiser pour libérer toute leur valeur.</p>
         </div>
+        <div class="button-small white-small w-inline-block">
+          <%= link_to 'Retournez à la page principale', root_path, class: "button-label" %>
+        </div>
       </div>
       <div class="hero-2-right">
         <div class="card-container-login padding-in-25 shadow r-9">
@@ -34,7 +37,9 @@
                   class: "text-field-3 w-input" %>
               </div>
               <div class="div-field m-b-20">
-                <%= f.button :submit, "Validez", class: "button_p-2 w-button" %>
+                <%= f.button :submit, "Validez",
+                id: "sweet-alert-btn",
+                class: "button_p-2 w-button" %>
               </div>
             <% end %>
           </div>
