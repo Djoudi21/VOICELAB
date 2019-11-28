@@ -13,15 +13,11 @@
               <p class="paragraph-alias">Choisissez le service de stockage vers lequel vous désirez importer vos données.</p>
             </div>
             <div class="fe03_card">
-              <h3 class="title-h3">🔌 2. Selectionez votre application</h3>
-              <p class="paragraph-alias">Selectionez l'application a partir de laquelle vous désirez réuperer vos données.</p>
+              <h3 class="title-h3">🔌 2. Contrat Voicelab</h3>
+              <p class="paragraph-alias">Remplissez le contrt d'autorisation à Voicelab.</p>
             </div>
             <div class="fe03_card">
-              <h3 class="title-h3">📬 3. Recevez l&#x27;email</h3>
-              <p class="paragraph-alias">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="fe03_card">
-              <h3 class="title-h3">🥰 4. Accès à vos données</h3>
+              <h3 class="title-h3">🥰 3. Accès à vos données</h3>
               <p class="paragraph-alias">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
           </div>
@@ -31,13 +27,12 @@
     <div>
       <div class="container padding-40 pt-80 w-container">
         <div class="cta07_main_wrap">
-          <h3>1. Connectez-vous où vous voulez télécharger vos données</h3>
-          <p class="paragraph-alias">Veuillez choisir votre service préféré pour stocker vos données.</p>
+          <h3>1. Connectez-vous a votre lieu de stockage</h3>
+          <p class="paragraph-alias">Veuillez selectioner votre lieu de stockage</p>
         </div>
         <div class="cta07_button_wrap">
-          <%= button_tag 'LOCAL', dsiabled: true, class:"import-bt-drive blue w-button btn-disabled" %>
-          <%= button_tag 'DROPBOX', dsiabled: true, class:"import-bt-drive blue w-button btn-disabled" %>
           <a href="/api/storage/gdrive/link?redirect=https%3A%2F%2Fvoicelabs.gdpr.dev%2Ftransfert%2F" class="import-bt-drive blue w-button">GOOGLE DRIVE</a>
+          <a href="#" class="import-bt-drive blue w-button">DRPOBOX</a>
         </div>
       </div>
     </div>
@@ -45,7 +40,7 @@
       <div class="container padding-40 w-container">
         <div class="form-access w-form">
           <div class="cta07_main_wrap">
-            <h3>2. Sélectionnez l&#x27;application d'où vous voulez récupérer vos données
+            <h3>2. Sélectionnez l&#x27;application d'où vous souhaitez récupérer vos données
             </div>
             <form id="email-form" name="email-form" data-name="Email Form" method="post" class="card-block-single padding">
               <div id="w-node-129497a4b956-9cab7d23" class="w-layout-grid grid-16-copy">
@@ -82,30 +77,9 @@
         <div class="container padding-40 w-container">
           <div class="form-access w-form">
             <div class="cta07_main_wrap">
-              <h3>3. Veuillez entrer votre identité</h3>
-              <p class="fe03_text">Veuillez choisir votre service préféré pour stocker vos données.</p>
-            </div>
-            <form id="email-form" name="email-form" data-name="Email Form" method="post" class="card-block-single padding align" dsiabled="true">
-              <div class="div-field">
-                <p class="field-label"><strong>Prénom</strong></p>
-                <input type="text" class="text-field-3 w-input" maxlength="256" name="First-name-2" data-name="First Name 2" placeholder="Prénom" data-toggle="date" id="First-name-2" required=""></div>
-              <div id="w-node-c97d24f87b26-9cab7d23" class="div-field">
-                <p class="field-label"><strong>Nom de famille</strong></p>
-                <input type="text" class="text-field-3 w-input" maxlength="256" name="Last-name-2" data-name="Last Name 2" placeholder="Nom de famille" data-toggle="date" id="Last-name-2" required=""></div>
-              <div id="w-node-c97d24f87b2b-9cab7d23" class="div-field">
-                <p class="field-label"><strong>Utilisation de l&#x27;email sur votre application en cours d&#x27;exécution</strong></p>
-                <input type="email" class="text-field-3 w-input" maxlength="256" name="Email-Address-2" data-name="Email Address 2" placeholder="Adresse de courriel" data-toggle="date" id="Email-Address-2" required=""></div>
-              <a id="w-node-c97d24f87b30-9cab7d23" href="#" class="cta07_button-copy blue w-button">Importer le verso de <br>
-                ma carte d&#x27;identité</a></form>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="container padding-40 w-container">
-          <div class="form-access w-form">
-            <div class="cta07_main_wrap">
               <h3>4. Validez votre demande</h3>
             </div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YNpERzRABNY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <form id="email-form" name="email-form" data-name="Email Form" method="post" class="card-block-single padding">
               <%= link_to 'Obtenir mes données', "https://takeout.google.com/settings/takeout?pli=1", class: "bt-data-copy noline blue w-button" %>
               <!-- <input type="submit" value="Obtenir mes données" data-wait="Please wait..." id="w-node-f101ba16582e-9cab7d23" class="bt-data-copy noline blue w-button"> -->
