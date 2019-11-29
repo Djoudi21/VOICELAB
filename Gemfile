@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'htmlbeautifier'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
+gem 'postmark-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -30,4 +31,5 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 end
