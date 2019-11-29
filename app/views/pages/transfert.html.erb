@@ -31,8 +31,12 @@
           <p class="paragraph-alias">Veuillez selectioner votre lieu de stockage</p>
         </div>
         <div class="cta07_button_wrap">
-          <a href="/api/storage/gdrive/link?redirect=https%3A%2F%2Fvoicelabs.gdpr.dev%2Ftransfert%2F" class="import-bt-drive blue w-button">GOOGLE DRIVE</a>
-          <a href="#" class="import-bt-drive blue w-button">DRPOBOX</a>
+          <%= link_to('/api/storage/gdrive/link?redirect=https%3A%2F%2Fvoicelabs.gdpr.dev%2Ftransfert%2F', class: 'btn') do %>
+            <div class="icons8-google-drive"></div>
+          <% end %>
+          <%= link_to('/api/storage/gdrive/link?redirect=https%3A%2F%2Fvoicelabs.gdpr.dev%2Ftransfert%2F', class: 'btn') do %>
+            <div class="icons8-dropbox"></div>
+          <% end %>
         </div>
       </div>
     </div>
