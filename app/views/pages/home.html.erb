@@ -21,9 +21,15 @@
                   <br>
                 </p>
               </div>
-              <div class="button-small white-small w-inline-block">
-                <%= link_to 'Faites que votre voix compte ET AIDEZ À LA RECHERCHE FRANÇAISE', users_new_path, class: "black-link" %>
-                <%= image_tag("chevron_right.svg", class: "button-arrow") %>
+              <div style="display: flex;">
+                <div class="button-small white-small w-inline-block">
+                  <%= link_to 'Faites que votre voix compte ET AIDEZ À LA RECHERCHE FRANÇAISE', users_new_path, class: "black-link" %>
+                  <%= image_tag("chevron_right.svg", class: "button-arrow") %>
+                </div>
+                <div class="button-small white-small w-inline-block">
+                  <a href="#w-node-ccb3f442dca5-59ab2a37" class="black-link scroll">En savoir plus</a>
+                  <%= image_tag("chevron_right.svg", class: "button-arrow") %>
+                </div>
               </div>
             </div>
           </div>
@@ -672,9 +678,13 @@
               </div>
             </div>
           </div>
-          <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-          <!-- <script src="/app/assets/javascripts/webflow.js" type="application/javascript">
-          </script> -->
+          <script
+            src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js"
+            type="text/javascript"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+          <script type="application/javascript" src="assets/index.js"></script>
+          <script src="assets/webflow.js" type="application/javascript"></script>
           <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
         </body>
       </html>
