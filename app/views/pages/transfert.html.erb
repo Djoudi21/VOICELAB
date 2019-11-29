@@ -83,11 +83,17 @@
             <div class="cta07_main_wrap">
               <h3>4. Validez votre demande</h3>
             </div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/YNpERzRABNY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <form id="email-form" name="email-form" data-name="Email Form" method="post" class="card-block-single padding">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/YNpERzRABNY"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+            <div class="card-block-single padding">
               <%= link_to 'Obtenir mes données', "https://takeout.google.com/settings/takeout?pli=1", class: "bt-data-copy noline blue w-button" %>
-              <!-- <input type="submit" value="Obtenir mes données" data-wait="Please wait..." id="w-node-f101ba16582e-9cab7d23" class="bt-data-copy noline blue w-button"> -->
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -100,9 +106,15 @@
         <div class="cta01_container">
           <h2 class="cta01_h2-2">Ouvrir mon application de messagerie</h2>
           <div class="div-img-tab">
-            <a href="https://mail.google.com/mail/u/0/" target="_blank" class="bt-mail w-button">Gmail </a>
-            <a href="https://outlook.live.com/" target="_blank" class="bt-mail w-button">HOTMAIL</a>
-            <a href="https://login.yahoo.com" target="_blank" class="bt-mail w-button">Yahoo</a>
+            <%= link_to ('https://mail.google.com/mail/u/0/') do %>
+              <%= image_tag ('icon-gmail.png') %>
+            <% end %>
+            <%= link_to ('https://outlook.live.com/') do %>
+              <%= image_tag ('icon-hotmail.png') %>
+            <% end %>
+            <%= link_to ('https://login.yahoo.com') do %>
+              <%= image_tag ('icon-yahoo.png') %>
+            <% end %>
           </div>
         </div>
       </div>

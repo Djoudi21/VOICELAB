@@ -20,4 +20,7 @@ class PagesController < ApplicationController
 
   def how
   end
+
+  def terms_and_conditions
+  end
 end
