@@ -34,7 +34,7 @@
           <%= link_to('/api/storage/gdrive/link?redirect=https%3A%2F%2Fvoicelabs.gdpr.dev%2Ftransfert%2F', class: 'btn') do %>
             <div class="icons8-google-drive"></div>
           <% end %>
-          <%= link_to('/api/storage/gdrive/link?redirect=https%3A%2F%2Fvoicelabs.gdpr.dev%2Ftransfert%2F', class: 'btn') do %>
+          <%= link_to('/url/to/authorizeEndpoint', class: 'btn') do %>
             <div class="icons8-dropbox"></div>
           <% end %>
         </div>
@@ -45,35 +45,8 @@
         <div class="form-access w-form">
           <div class="cta07_main_wrap">
             <h3>2. Sélectionnez l&#x27;application d'où vous souhaitez récupérer vos données
+              <div id="contract"></div>
             </div>
-            <form id="email-form" name="email-form" data-name="Email Form" method="post" class="card-block-single padding">
-              <div id="w-node-129497a4b956-9cab7d23" class="w-layout-grid grid-16-copy">
-                <div class="app-card-01 off"><img src="https://uploads-ssl.webflow.com/5d526d292ca59aed659476ed/5d76c31f344fac7a320838dc_Amazon-color.svg" alt="" class="icon-case">
-                  <div class="fe02_card_titles">
-                    <h3 class="title-card-ex">Amazon</h3>
-                    <div class="label-card">BIENTOT DISPONIBLE</div>
-                  </div>
-                </div>
-                <div class="app-card-01 off"><img src="https://uploads-ssl.webflow.com/5d526d292ca59aed659476ed/5d76c3e78d6d912b0d810f4f_Apple.svg" alt="" class="icon-case">
-                  <div class="fe02_card_titles">
-                    <h3 class="title-card-ex">Apple Watch</h3>
-                    <div class="label-card">BIENTOT DISPONIBLE</div>
-                  </div>
-                </div>
-                <div class="app-card-01"><img src="../images/download-4.jpeg" alt="" class="icon-case">
-                  <div class="fe02_card_titles">
-                    <h3 class="title-card-ex">Ok Google</h3>
-                    <div class="label-card">DISPONIBLE</div>
-                  </div>
-                </div>
-                <div class="app-card-01"><img src="https://uploads-ssl.webflow.com/5d526d292ca59aed659476ed/5d76b3782b8385e0f9effb80_plus.svg" alt="" class="icon-case">
-                  <div class="fe02_card_titles">
-                    <h3 class="title-card-ex">Et d'autres</h3>
-                    <div class="label-card">DEMANDEZ NOUS</div>
-                  </div>
-                </div>
-              </div>
-            </form>
           </div>
         </div>
       </div>
@@ -123,5 +96,6 @@
     <!--     <script type="applicaton/javascript" src="/javascripts/webflow.js"></script -->
     <script type="applicaton/javascript" src="/javascripts/index.js"></script>
     <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+    <%= javascript_pack_tag 'contract' %>
   </body>
 </html>
