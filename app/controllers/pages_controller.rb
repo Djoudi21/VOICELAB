@@ -9,9 +9,6 @@ class PagesController < ApplicationController
   def usecases
   end
 
-  def contact
-  end
-
   def home_tracking
   end
 

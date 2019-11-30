@@ -1,0 +1,34 @@
+<div class="container padding-80 w-container">
+  <div class="grid-basic">
+    <div id="w-node-eebf6b0caedb-b1edf646" class="intro-left-wrap">
+      <div class="text-label">YOU NEED THIS SOLUTION ?</div>
+      <div class="title-section">Become a partner</div>
+      <p class="paragraph-alias">To recover your data you must request it from the desired platform, the problem is that it is sometimes legally complicated. That&#x27;s why Alias offers you the solution that can be created from scratch and adapted to your needs for each platform. Then all you have to do is send your request and reach the reception of your data.</p>
+    </div>
+    <div id="w-node-eebf6b0caee2-b1edf646">
+      <div class="form01">
+        <div class="form01_title_wrap">
+          <h5 class="form01_h5">Get in touch</h5>
+          <p class="form01_paragraph">Explain your need</p>
+          <div class="form01_line"></div>
+        </div>
+        <%= simple_form_for @request do |f| %>
+          <%= f.input :email,
+          autofocus: true,
+          class: "form01_input w-input" %>
+          <%= f.input :user_first_name,
+                  autofocus: true,
+                  class: "form01_input w-input" %>
+          <%= f.input :user_last_name,
+                  autofocus: true,
+                  class: "form01_input w-inputt" %>
+          <%= f.input :content,
+                  autofocus: true,
+                  class: "form01_input_full w-input" %>
+          <%= f.button :submit, "Validez", id: '#sweet-alert-btn',
+                class: "button_p-2 w-button" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
