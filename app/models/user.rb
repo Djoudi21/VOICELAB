@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   after_create :send_thanks_email
-
+  validates :email, uniqueness: true
 
   private
 
