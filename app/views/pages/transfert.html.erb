@@ -2,7 +2,8 @@
   <div class="custom-body">
     <div class="hero-log blue-bg">
       <div class="w-container">
-        <div class="hero-usecase--text-left"><img src="../images/cfakepathlogo-blanc-530.png" height="30" alt="" class="image-11">
+        <div class="hero-usecase--text-left">
+          <%= image_tag("cfakepathlogo-blanc-530.png", height: 30, class: "image-11") %>
           <div class="sizejumbo-text sizejumbo-top-clear usecase-title"><strong>Participez</strong> à La recherche sur l&#x27;iA ET les données vocales, la recherche Française est en retard.</div>
           <div class="lnd_details">Vous souhaitez récupérer vos données? <br>
             Lisez les instructions ci-dessous.
@@ -34,7 +35,7 @@
           <%= link_to('/api/storage/gdrive/link?redirect=https%3A%2F%2Fvoicelabs.gdpr.dev%2Ftransfert%2F', class: 'btn') do %>
             <div class="icons8-google-drive"></div>
           <% end %>
-          <%= link_to('/url/to/authorizeEndpoint', class: 'btn') do %>
+          <%= button_tag('', disabled: true, class: 'btn btn-disabled') do %>
             <div class="icons8-dropbox"></div>
           <% end %>
         </div>
@@ -44,57 +45,144 @@
       <div class="container padding-40 w-container">
         <div class="form-access w-form">
           <div class="cta07_main_wrap">
-            <h3>2. Sélectionnez l&#x27;application d'où vous souhaitez récupérer vos données
-              <div id="contract"></div>
+            <h3>2. Contrat d'autorisation d'accès à votre compte Google Drive par Voicelab</h3>
+            <div id="popup">
+              <div id="popup-content">
+                <p class="title">🔒 <em>{{ c.client.body.name }}</em>, de <em>{{ c.client.body.company }}</em>, désire accéder à vos données.</p>
+                <div v-if="hasContractual" class="indent">
+                  <p>Cette application accèdera aux données suivantes:</p>
+                  <ul>
+                    <li v-for="scope in c.base.contractual.scopes"><alias-scope :value="scope" /></li>
+                    </ul>
+                    <p>Ces données seront utilisées pour les raisons suivantes<span v-if="c.base.contractual.usages.length>1">s</span>:</p>
+                    <ul>
+                      <li v-for="usage in c.base.contractual.usages">{{ usage }}</code></li>
+                  </ul>
+                </div>
+                <div v-if="hasConsent">
+                  <div v-for="consent in c.base.consent" class="indent">
+                    <p>Cette application souhaite avoir votre consentement pour accéder aux données suivantes:</p>
+                    <ul>
+                      <li v-for="(scope, i) in consent.scopes">
+                        Consentez-vous également à partager ce type de données <alias-scope :value="scope"></alias-scope>?
+                        <input type="radio" v-model="scope.agree" :value="true">Oui
+                        <input type="radio" v-model="scope.agree" :value="false">Non
+                      </li>
+                    </ul>
+                    <p>Ces données seront utilisées pour la raison suivante<span v-if="consent.usages.length>1">s</span>:</p>
+                    <ul>
+                      <li v-for="usage in consent.usages">{{ usage }}</code></li>
+                  </ul>
+                </div>
+              </div>
+              <div v-if="hasLegitimate" class="indent">
+                <p>Cette application recquiert l'accès à vos données legitimes por la raison suivante:</p>
+                <p>{{ c.base.legitimate.reason }}</p>
+                <div v-for="legitimate in c.base.legitimate.groups" class="indent">
+                  <p>Cette application demande l'accès aux données suivantes:</p>
+                  <ul>
+                    <li v-for="scope in legitimate.scopes"><alias-scope :value="scope" /></li>
+                    </ul>
+                    <p>Ces données seront utilisées pour la raison suivante<span v-if="legitimate.usages.length>1">s</span>:</p>
+                    <ul>
+                      <li v-for="usage in legitimate.usages">{{ usage }}</code></li>
+                  </ul>
+                </div>
+              </div>
+              <p>Vos données:</p>
+              <ul>
+                <li>
+                  <verb :value="true">seront</verb> paratagées avec <em>{{c.client.body.name}}</em>
+                  <span v-if="c.legal && c.legal.destination">
+                    et <em v-for="(t, idx) in c.legal.destination">{{t}}<span v-if="idx+1 < c.legal.destination.length">, </span></em></span>;
+                </li>
+                <li>
+                  <verb :value="c.legal.transfer_outside_eea">ne seront pas</verb> transferées en dehors de L'Union Européenne(UE);
+                </li>
+                <li>
+                  <verb :value="c.legal.evaluation_notation_rating_profiling">ne seront pas</verb> utilisées pour l'évaluation, la notation, ou pour profilages;
+                </li>
+                <li>
+                  <verb :value="c.legal.automated_decision">ne seront pas</verb> utilisées pour générer une décision automatique vous concernant;
+                </li>
+                <li>
+                  <verb :value="c.legal.automated_surveillance">ne seront pas</verb> utilisées pour une surveillance auotmatique;
+                </li>
+                <li>
+                  <verb :value="c.legal.mixing_reasonable_expectations">ne seront pas</verb> crossed or mixed beyond reasonnable expectations;
+                </li>
+                <li>
+                  <verb :value="c.legal.innovative_reasonable_expectations">ne seront pas</verb> utilisées de façon innovante ou avec des technologies innovantes ou des systemes organisationnels innovants au dela d'attentes raisonnables;
+                </li>
+              </ul>
+              <p>Vos données seront stockées pour une durée de<em>{{c.legal.storage_duration}}</em>.</p>
+              <p>
+                <a v-if="c.legal.tos_url" :href="c.legal.tos_url" target="_blank">Privacy policy</a> - <a :href="'mail:' + c.legal.email_dpo">Contacter le DPO</a>
+              </p>
+              <p>Vous avez le droit d'accéder, de modifier, transferer ou supprimer les données que vous avez collecté comme la loi vous y autorise.</p>
+              <button v-on:click="agree">J'accepte</button>
+              <button v-on:click="deny">Je refuse</button>
+              <p><a href="#" id="advanced" v-on:click="toggleAdvanced">Advanced</a></p>
+              <div id="advanced-info" v-show="showAdvanced">
+                <p>
+                  Request date: <code>{{c.client.date}}</code>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div>
-        <div class="container padding-40 w-container">
-          <div class="form-access w-form">
-            <div class="cta07_main_wrap">
-              <h3>4. Validez votre demande</h3>
-            </div>
-            <iframe
+    </div>
+  </div>
+  <div>
+    <div class="container padding-40 w-container">
+      <div class="form-access w-form">
+        <div class="cta07_main_wrap">
+          <h3>4. Validez votre demande</h3>
+        </div>
+        <iframe
               width="560"
               height="315"
               src="https://www.youtube.com/embed/YNpERzRABNY"
               frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
-            </iframe>
-            <div class="card-block-single padding">
-              <%= link_to 'Obtenir mes données', "https://takeout.google.com/settings/takeout?pli=1", class: "bt-data-copy noline blue w-button" %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="section-large---inner blue">
-        <div class="cta01_bar">
-          <div class="cta01_text_wrap">
-            <div class="cta01_text">Regardez votre boîte email et ouvrez notre email pour la réception de vos données.</div>
-          </div>
-        </div>
-        <div class="cta01_container">
-          <h2 class="cta01_h2-2">Ouvrir mon application de messagerie</h2>
-          <div class="div-img-tab">
-            <%= link_to ('https://mail.google.com/mail/u/0/') do %>
-              <%= image_tag ('icon-gmail.png') %>
-            <% end %>
-            <%= link_to ('https://outlook.live.com/') do %>
-              <%= image_tag ('icon-hotmail.png') %>
-            <% end %>
-            <%= link_to ('https://login.yahoo.com') do %>
-              <%= image_tag ('icon-yahoo.png') %>
-            <% end %>
-          </div>
+        </iframe>
+        <div class="card-block-single padding">
+          <%= link_to 'Obtenir mes données', "https://takeout.google.com/settings/takeout?pli=1", class: "bt-data-copy noline blue w-button" %>
         </div>
       </div>
     </div>
-    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!--     <script type="applicaton/javascript" src="/javascripts/webflow.js"></script -->
-    <script type="applicaton/javascript" src="/javascripts/index.js"></script>
-    <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
-  </body>
-</html>
+  </div>
+  <div class="section-large---inner blue">
+    <div class="cta01_bar">
+      <div class="cta01_text_wrap">
+        <div class="cta01_text">Regardez votre boîte email et ouvrez notre email pour la réception de vos données.</div>
+      </div>
+    </div>
+    <div class="cta01_container">
+      <h2 class="cta01_h2-2">Ouvrir mon application de messagerie</h2>
+      <div class="div-img-tab">
+        <%= link_to ('https://mail.google.com/mail/u/0/') do %>
+          <%= image_tag ('icon-gmail.png') %>
+        <% end %>
+        <%= link_to ('https://outlook.live.com/') do %>
+          <%= image_tag ('icon-hotmail.png') %>
+        <% end %>
+        <%= link_to ('https://login.yahoo.com') do %>
+          <%= image_tag ('icon-yahoo.png') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="application/javascript" src="/assets/request.js"></script>
+<script
+  src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js"
+  type="text/javascript"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="applicaton/javascript" src="/assets/index.js"></script>
+<!--     <script type="applicaton/javascript" src="/javascripts/webflow.js"></script -->
+<!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+</body>
