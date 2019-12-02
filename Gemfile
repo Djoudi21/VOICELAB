@@ -20,6 +20,8 @@ gem 'htmlbeautifier'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'postmark-rails'
 
+gem 'ruby-hmac'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
