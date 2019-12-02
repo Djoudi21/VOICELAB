@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'tracking', to: "pages#home_tracking"
   get 'device', to: "pages#transfert_tracking"
   get 'how', to: "pages#how"
+  get 'toto', to: "pages#toto"
 
 
   get    "users/new",      to: "users#new"
