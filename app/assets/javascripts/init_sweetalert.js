@@ -1,4 +1,4 @@
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
 
 const initSweetalert = (selector, options = {}) => {
   const swalButton = document.querySelector(selector);
@@ -9,4 +9,4 @@ const initSweetalert = (selector, options = {}) => {
   }
 };
 
-export { initSweetalert };
+// export { initSweetalert };
