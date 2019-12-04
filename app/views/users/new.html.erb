@@ -16,35 +16,120 @@
             <h2 class="heading-12"><strong>Essayez la version Beta</strong></h2>
             <p class="m-b-20-2">Enrez les infomrations demandées et recevez rapidement un acces a notre version beta.</p>
           </div>
-          <div class="w-form">
-            <%= simple_form_for @user do |f| %>
+          <div id="login">
+            <h2 class="heading-5">Login</h2>
+            <form>
               <div class="div-field m-b-20">
-                <%= f.input :email,
-          autofocus: true,
-          label: 'Votre email',
-          class: "text-field-3 w-input" %>
+                <input
+              type="text"
+              class="text-field-3 w-input"
+              placeholder="Username">
+                </input>
               </div>
               <div class="div-field m-b-20">
-                <%= f.input :first_name,
-                  autofocus: true,
-                  label: 'Votre prénom',
-                  class: "text-field-3 w-input" %>
+                <input
+              type="password"
+              class="text-field-3 w-input"
+              placeholder="Your password">
+                </input>
+              </div>
+              <button class="button_p-2 w-button">Login</button>
+            </form>
+          </div>
+          <div id="create_account">
+            <h2 class="heading-5">Sign up</h2>
+            <form>
+              <div class="div-field m-b-20">
+                <input
+              type="text"
+              id="create_account_username"
+              class="text-field-3 w-input"
+              placeholder="Pseudonyme">
+                </input>
               </div>
               <div class="div-field m-b-20">
-                <%= f.input :last_name,
-                  autofocus: true,
-                  label: 'Votre nom',
-                  class: "text-field-3 w-input" %>
+                <input
+              type="text"
+              id="form_first_name"
+              class="text-field-3 w-input"
+              placeholder="Prénom">
+                </input>
               </div>
               <div class="div-field m-b-20">
-                <%= f.button :submit, "Validez",
-                id: "sweet-alert-btn",
-                class: "button_p-2 w-button" %>
+                <input
+              type="text"
+              id="form_last_name"
+              class="text-field-3 w-input"
+              placeholder="Nom">
+                </input>
               </div>
-            <% end %>
+              <div class="div-field m-b-20">
+                <input
+              type="text"
+              id="create_account_email"
+              class="text-field-3 w-input"
+              placeholder="Email">
+                </input>
+              </div>
+              <div class="div-field m-b-20">
+                <input
+              type="password"
+              class="text-field-3 w-input"
+              placeholder="A strong password...">
+                </input>
+              </div>
+              <button class="button_p-2 w-button">Sign up</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+<script>
+  $("#create_account form").on("submit", function() {
+      // jquery
+      const username = $("#create_account_username").val();
+      const email = $('#create_account_email').val();
+  
+      const firstname = $('#form_first_name').val();
+      const lastname = $('#form_last_name').val();
+      const passInput = $("#create_account input[type=password]");
+      const pwd = passInput.val();
+      passInput.val("");
+  
+      // defined in alias.js
+      createAccount(username, pwd)
+          .then(() => {
+            debugger
+            return fetch('http://localhost:4000/api/v1/users', {
+              method: 'POST',
+              data: {
+                  username: username,
+                  firstname: firstname,
+                  lastname: lastname,
+                  email: email,
+              }
+          })})
+          .then(() => console.debug("creating account OK!"))
+          .then(() => redirect())
+          .catch((e) => console.error("error account creating"))
+                  return false;
+  
+  });
+  
+  $("#login form").on("submit", () => {
+      const username = $("#login input[type=text]").val();
+      const passInput = $("#login input[type=password]");
+      const pwd = passInput.val();
+      passInput.val("");
+  
+      loginAccount(username, pwd)
+          .then(() => redirect())
+          .catch((e) => alert(e))
+      ;
+  
+      return false;
+  });
+</script>
 </div>
