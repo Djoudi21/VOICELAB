@@ -1,3 +1,8 @@
+.flex{
+  display: flex;
+}
+
+
 .white-link {
   color: #fff;
 }
@@ -2058,6 +2063,8 @@ a:hover {
   padding: 15px 30px;
   border-radius: 10px;
   box-shadow: 0 20px 40px 0 rgba(0, 96, 255, 0.15);
+  margin-left: 300px;
+  margin-top: 75px;
 }
 
 .form_error_line {
