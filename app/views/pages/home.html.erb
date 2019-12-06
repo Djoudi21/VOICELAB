@@ -21,15 +21,19 @@
                   <br>
                 </p>
               </div>
-              <div style="display: flex;">
-                <div class="button-small white-small w-inline-block">
-                  <%= link_to 'Faites que votre voix compte ET AIDEZ À LA RECHERCHE FRANÇAISE', users_new_path, class: "black-link" %>
-                  <%= image_tag("chevron_right.svg", class: "button-arrow") %>
-                </div>
-                <div class="button-small white-small w-inline-block">
-                  <a href="#w-node-ccb3f442dca5-59ab2a37" class="black-link scroll">En savoir plus</a>
-                  <%= image_tag("chevron_right.svg", class: "button-arrow") %>
-                </div>
+              <div  style="display: flex;">
+                <a href="/login/?redirect=/transfert/" class="black-link btn-cta opacity-light" style="display: flex;">
+                  <div class="button-small white-small w-inline-block" style=" margin-right: 15px;">
+                    <p style="margin-bottom: 0px;">Faites que votre voix compte ET AIDEZ À LA RECHERCHE FRANÇAISE</p>
+                    <%= image_tag("chevron_right.svg", class: "button-arrow") %>
+                  </div>
+                </a>
+                <a href="#w-node-ccb3f442dca5-59ab2a37" class="black-link scroll btn-cta opacity-light">
+                  <div class="button-small white-small w-inline-block">
+                    <p style="margin-bottom: 0px;">En savoir plus</p>
+                    <%= image_tag("chevron_right.svg", class: "button-arrow") %>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
@@ -360,7 +364,7 @@
                   </div>
                 </div>
                 <div class="div-block-1027">
-                  <a href="https://levoicelab.gdpr.dev/login/?redirect=/transfert/" class="button ghost button-small white-small bt-small">
+                  <a href="https://levoicelab.gdpr.dev/login/?redirect=/transfert/" class="button ghost button-small white-small bt-small opacity-light btn-cta">
                     <p style="margin-bottom: 0px;">Je contribue</p>
                     <%= image_tag("mic.svg", width: "20", class: "button-arrow") %>
                   </a>
