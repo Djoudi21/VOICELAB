@@ -32,7 +32,7 @@
           <p class="paragraph-alias">Veuillez selectioner votre lieu de stockage</p>
         </div>
         <div class="cta07_button_wrap">
-          <%= link_to('/api/storage/gdrive/link?redirect=https%3A%2F%2Fvoicelabs.gdpr.dev%2Ftransfert%2F', class: 'btn') do %>
+          <%= link_to('/api/storage/gdrive/link?redirect=https%3A%2F%2Fvoicelabs.gdpr.dev%2Ftransfert%2F', class: 'btn', id: 'click') do %>
             <div class="icons8-google-drive"></div>
           <% end %>
           <%= button_tag('', disabled: true, class: 'btn btn-disabled') do %>
@@ -44,9 +44,9 @@
     <div>
       <div class="w-container">
         <div class="form-access w-form">
-          <div class="cta07_main_wrap">
+          <div class="cta07_main_wrap disabled-form" id="disabled-form">
             <h3>2. Contrat d'autorisation d'accès à votre compte Google Drive par Voicelab</h3>
-            <div id="popup"  class=" form01">
+            <div id="popup"  class=" form01 margin-left">
               <div id="popup-content">
                 <p class="title" style="font-weightbold">🔒 <em>{{ c.client.body.name }}</em>, de <em>{{ c.client.body.company }}</em>, désire accéder à vos données.</p>
                 <div v-if="hasContractual" class="indent">
@@ -121,8 +121,8 @@
               </p>
               <p style="font-weight: bold">Vous avez le droit d'accéder, de modifier, transferer ou supprimer les données que vous avez collecté comme la loi vous y autorise.</p>
               <div class="flex">
-                <button v-on:click="agree" id="sweet-alert-btn" class="button ghost w-button">J'accepte</button>
-                <button v-on:click="deny" class="button ghost w-button">Je refuse</button>
+                <button v-on:click="agree" id="toto" class="button ghost w-button" disabled>J'accepte</button>
+                <button v-on:click="deny" id="sweet-alert-btn-deny" class="button ghost w-button" disabled>Je refuse</button>
               </div>
               <p><a href="#" id="advanced" v-on:click="toggleAdvanced">Advanced</a></p>
               <div id="advanced-info" v-show="showAdvanced">
@@ -139,7 +139,7 @@
   <div>
     <div class="container padding-40 w-container">
       <div class="form-access w-form">
-        <div class="cta07_main_wrap">
+        <div id="video" class="cta07_main_wrap disabled-form">
           <h3>4. Validez votre demande</h3>
         </div>
         <div style="margin-left: 300px">
@@ -330,6 +330,32 @@
       $("#popup").show();
   };
 </script>
+<script>
+  //recuperer l'element html
+  const gdrive = document.getElementById('click');
+  const form = document.getElementById('disabled-form');
+  const video = document.getElementById('video');
+  //atahcer un eventlistener
+  gdrive.addEventListener('click', (event) => {
+    event.preventDefault();
+    form.classList.add('enabled-form');
+  const buttonAccept = document.getElementById('toto').disabled=false;
+  const buttonDeny = document.getElementById('sweet-alert-btn-deny').disabled=false;
+  
+  });
+  const buttonAccept = document.getElementById('toto');
+  buttonAccept.addEventListener('click', (event) => {
+    event.preventDefault();
+    video.classList.add('enabled-form');
+  });
+</script>
+<!-- <script type="text/javascript">
+  $("#click").on("click", funtion() {
+    //recuperer le formulaire
+    const contract = $('#contract');
+
+  });
+</script> -->
 <script type="applicaton/javascript" src="/javascript/index.js"></script>
 <!--     <script type="applicaton/javascript" src="/javascripts/webflow.js"></script -->
 <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
