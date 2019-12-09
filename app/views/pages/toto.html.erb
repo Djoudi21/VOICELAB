@@ -1,57 +1,25 @@
-<body class="body-2">
-  <div class="body-container">
-    <div class="left-body-container">
-      <div id="login">
-        <h2 class="heading-5">Login</h2>
-        <div class="hero-2-right">
-          <form>
-            <input
-              type="text"
-              class="text-field"
-              placeholder="Username"
-              style="width: 100%;
-margin: 15px 0 15px 0;">
-            </input>
-            <input
-              type="password"
-              class="text-field"
-              placeholder="Your password"
-              style="width: 100%;
-margin: 15px 0 15px 0;">
-            </input>
-            <button class="button secondary full-width">Login</button>
-          </form>
-        </div>
-        <div id="create_account">
-          <h2 class="heading-5">Sign up</h2>
-          <form>
-            <input
-              type="text"
-              id="create_account_username"
-              class="text-field"
-              placeholder="Username"
-              style="width: 100%;
-margin: 15px 0 15px 0;">
-            </input>
-            <input
-              type="text"
-              id="create_account_email"
-              class="text-field"
-              placeholder="Email"
-              style="width: 100%;
-margin: 15px 0 15px 0;">
-            </input>
-            <input
-              type="password"
-              class="text-field"
-              placeholder="A strong password..."
-              style="width: 100%;
-margin: 15px 0 15px 0;">
-            </input>
-            <button class="button secondary full-width">Sign up</button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <script type="application/javascript" src="/login.js"></script>
-  </body>
+<html>
+    <head>
+        <script
+          src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </head>
+
+    <body>
+        <h1>Hello, World! :-)</h1>
+        <button id="agree">I agree</button>
+        <button id="deny">I deny</button>
+        <script>
+            $(() => {
+                $("#agree").on('click', () => {
+                    swal("Good job!", "You clicked the button!", "success");
+                });
+                $("#deny").on('click', () => {
+                    swal("Oops!", "You clicked the button!", "error");
+                });
+            });
+        </script>
+    </body>
+</html>
