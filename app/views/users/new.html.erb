@@ -14,29 +14,66 @@
         <div class="card-container-login padding-in-25 shadow r-9">
           <div class="div-google-sign">
             <h2 class="heading-12"><strong>Essayez la version Beta</strong></h2>
-            <p class="m-b-20-2">Enrez les infomrations demandées et recevez rapidement un acces a notre version beta.</p>
+            <p class="m-b-20-2">Remplissez les champs ci-dessous et recevez rapidement un accès a notre version beta.</p>
           </div>
-          <div id="login">
-            <h2 class="heading-5">Login</h2>
-            <form>
+          <!-- <div id="login">
+            <h2 class="heading-5">Inscrivez-vous</h2>
+            <form action="/users" method="post">
               <div class="div-field m-b-20">
                 <input
               type="text"
+              name="last_name"
               class="text-field-3 w-input"
-              placeholder="Username">
+              placeholder="Nom">
                 </input>
               </div>
               <div class="div-field m-b-20">
                 <input
-              type="password"
+              type="text"
+              name="first_name"
               class="text-field-3 w-input"
-              placeholder="Your password">
+              placeholder="Prénom">
+                </input>
+                <input
+              type="text"
+              name="email"
+              class="text-field-3 w-input"
+              placeholder="Email">
                 </input>
               </div>
               <button class="button_p-2 w-button">Login</button>
             </form>
+          </div> -->
+          <div>
+            <%= simple_form_for @user do |f| %>
+            <div class="form-group">
+              <%= f.input :first_name,
+                  required: false,
+                  label: false,
+                  placeholder: "Prénom",
+                  class: "text-field-3 w-input" %>
+            </div>
+             <div class="form-group">
+              <%= f.input :last_name,
+                  required: false,
+                  label: false,
+                  placeholder: "Nom",
+                  class: "text-field-3 w-input" %>
+            </div>
+            <div class="form-group">
+              <%= f.input :email,
+          required: false,
+          label: false,
+          placeholder: "Email",
+          autofocus: true,
+          class: "text-field-3 w-input" %>
+            </div>
+            <div class="form-group">
+              <%= f.button :submit, "Validez", id: "validation", class: "button_p-2 w-button", data: { "disable-with": "Validez" }%>
+            </div>
+          <% end %>
           </div>
-          <div id="create_account">
+<!--           <div id="create_account">
             <h2 class="heading-5">Sign up</h2>
             <form>
               <div class="div-field m-b-20">
@@ -80,28 +117,28 @@
               </div>
               <button class="button_p-2 w-button">Sign up</button>
             </form>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
   </div>
 </div>
-<script>
+<!-- <script>
   $("#create_account form").on("submit", function() {
       // jquery
       const username = $("#create_account_username").val();
       const email = $('#create_account_email').val();
-  
+
       const firstname = $('#form_first_name').val();
       const lastname = $('#form_last_name').val();
       const passInput = $("#create_account input[type=password]");
       const pwd = passInput.val();
       passInput.val("");
-  
+
       // defined in alias.js
       createAccount(username, pwd)
           .then(() => {
-  
+
             return fetch('http://localhost:4000/api/v1/users', {
               method: 'POST',
               data: {
@@ -115,21 +152,31 @@
           .then(() => redirect())
           .catch((e) => console.error("error account creating"))
                   return false;
-  
+
   });
-  
+
   $("#login form").on("submit", () => {
       const username = $("#login input[type=text]").val();
       const passInput = $("#login input[type=password]");
       const pwd = passInput.val();
       passInput.val("");
-  
+
       loginAccount(username, pwd)
           .then(() => redirect())
           .catch((e) => alert(e))
       ;
-  
+
       return false;
   });
-</script>
+</script> -->
+  <!-- <script>
+    function alert(event) {
+      debugger
+      const btn = document.getElementById('validation');
+      btn.addEventListener('submit', (event) => {
+        event.preventDefault();
+        swal("Votre demande est validée", "Un mail de confirmation vous sera envoyé", "success");
+      });
+    }
+  </script> -->
 </div>

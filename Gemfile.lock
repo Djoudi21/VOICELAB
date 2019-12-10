@@ -68,7 +68,7 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     execjs (2.7.0)
-    faraday (0.17.0)
+    faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.2)
     figaro (1.1.1)
@@ -184,6 +184,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     ruby-hmac (0.4.0)
+    ruby_http_client (3.3.0)
     sassc (2.2.1)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -192,6 +193,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    sendgrid-ruby (6.0.0)
+      ruby_http_client (~> 3.3.0)
     simple_form (5.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -252,6 +255,7 @@ DEPENDENCIES
   redis
   ruby-hmac
   sassc-rails
+  sendgrid-ruby
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
