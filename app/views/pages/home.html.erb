@@ -680,6 +680,45 @@
                   </div>
                 </div>
               </div>
+              <div class="container padding-80 w-container">
+                <div class="f01_top_wrap">
+                  <a href="#" class="f01_logo w-nav-brand">
+                    <h3 class="heading-14">Alias</h3>
+                  </a>
+                </div>
+                <div class="f01_columns w-row">
+                  <!-- <div class="f01_column w-col w-col-2 w-col-small-small-stack">
+      <div class="f01_title">Main links</div>
+      <a href="#" class="f01_link">For users</a>
+      <a href="#" class="f01_link">For business</a>
+    </div> -->
+                  <div class="f01_column w-col w-col-2 w-col-small-small-stack">
+                    <div class="f01_title">About us</div>
+                    <%= link_to 'Contact', requests_new_path, class: "f01_link" %>
+                    <a href="https://medium.com/@gdprtoken" class="f01_link">Blog</a>
+                  </div>
+                  <div class="f01_column w-col w-col-2 w-col-small-small-stack">
+                    <div class="f01_title">Legal</div>
+                    <%= link_to 'Terms and conditions', terms_and_conditions_path, class: "f01_link" %>
+                  </div>
+                  <div class="f01_column w-col w-col-2 w-col-small-small-stack"></div>
+                  <div class="f01_column_right w-col w-col-4 w-col-small-small-stack">
+                    <div class="f01_title">Follow Our Socials</div>
+                    <div class="f01_social_wrap">
+                      <div class="f01_social_circle_c">
+                        <%= link_to ('https://github.com/Djoudi21/VOICELAB') do %>
+                          <%= image_tag ("icon-github.png") %>
+                        <% end %>
+                      </div>
+                      <div class="f01_social_circle">
+                        <%= link_to root_path do %>
+                          <%= image_tag ("icon-twitter.png") %>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <script
