@@ -1,14 +1,14 @@
 import "bootstrap";
 // import swal from 'sweetalert';
 
-// import { initSweetalert } from '../plugins/init_sweetalert';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 
-// initSweetalert('#toto', {
-//   title: "Merci",
-//   text: "Le contrat est validé",
-//   icon: "success"
-// });
+initSweetalert('#validation', {
+  title: "Votre demande est validée",
+  text: "Un mail de confirmation vous sera envoyé",
+  icon: "success"
+});
 
 // // initSweetalert('#sweet-alert-btn-deny', {
 // //   title: "Désolé",
