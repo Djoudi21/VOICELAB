@@ -45,35 +45,35 @@
             </form>
           </div> -->
           <div>
-            <%= simple_form_for @user do |f| %>
-            <div class="form-group">
-              <%= f.input :first_name,
+            <%= simple_form_for @user, remote: true do |f| %>
+              <div class="form-group">
+                <%= f.input :first_name,
                   required: false,
                   label: false,
                   placeholder: "Prénom",
                   class: "text-field-3 w-input" %>
-            </div>
-             <div class="form-group">
-              <%= f.input :last_name,
+              </div>
+              <div class="form-group">
+                <%= f.input :last_name,
                   required: false,
                   label: false,
                   placeholder: "Nom",
                   class: "text-field-3 w-input" %>
-            </div>
-            <div class="form-group">
-              <%= f.input :email,
+              </div>
+              <div class="form-group">
+                <%= f.input :email,
           required: false,
           label: false,
           placeholder: "Email",
           autofocus: true,
           class: "text-field-3 w-input" %>
-            </div>
-            <div class="form-group">
-              <%= f.button :submit, "Validez", id: "validation", class: "button_p-2 w-button", data: { "disable-with": "Validez" }%>
-            </div>
-          <% end %>
+              </div>
+              <div class="form-group">
+                <%= f.button :submit, "Validez", id: "validation", class: "button_p-2 w-button", data: { "disable-with": "Validez" }%>
+              </div>
+            <% end %>
           </div>
-<!--           <div id="create_account">
+          <!--           <div id="create_account">
             <h2 class="heading-5">Sign up</h2>
             <form>
               <div class="div-field m-b-20">
@@ -169,7 +169,7 @@
       return false;
   });
 </script> -->
-  <!-- <script>
+<!-- <script>
     function alert(event) {
       debugger
       const btn = document.getElementById('validation');

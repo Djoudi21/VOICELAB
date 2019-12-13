@@ -8,12 +8,18 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
       # Deliver the signup email
       # UserMailer.thanks(@user).deliver
-      redirect_to root_path
       # redirect_to(@user, :notice => 'User created')
     else
-      render :new
+      respond_to do |format|
+        format.html { render 'users/new' }
+        format.js
+      end
     end
   end
 

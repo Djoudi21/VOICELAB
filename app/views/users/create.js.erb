@@ -1,0 +1,13 @@
+$(() => {
+  <% if @user.errors.any? %>
+    $('#new_user').html('<%= j render "users/form", user: @user%>');
+  <% else %>
+  //bug pour rendre la partial du form sans les erreurs dans le cas ou une erreur a ete faite avant validation
+  //sinon comportement du form correct
+    $('#user_first_name').val('');
+    $('#user_email').val('');
+    $('#user_last_name').val('');
+    swal("Merci!", "Votre demande est validée", "success");
+  <% end %>
+});
+
