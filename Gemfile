@@ -18,7 +18,6 @@ gem 'webpacker'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'htmlbeautifier'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
-gem 'postmark-rails'
 gem 'sendgrid-ruby'
 
 gem 'ruby-hmac'
