@@ -4,6 +4,16 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   # Settings specified here will take precedence over those in config/application.rb.
+  ActionMailer::Base.smtp_settings = {
+    address: "smtp.sendgrid.net",
+    port: 465,
+    domain: 'levoicelab.gdpr.dev',
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_KEY'],
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

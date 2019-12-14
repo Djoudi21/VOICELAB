@@ -10,8 +10,10 @@ module VOICELAB
   class Application < Rails::Application
     config.assets.paths << "#{Rails.root}/app/assets/videos"
 
-    config.action_mailer.delivery_method = :postmark
-    config.action_mailer.postmark_settings = { :api_token => ENV["POSTMARK_ID"] }
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+
+    config.action_mailer.delivery_method = :smtp
+    # config.action_mailer.postmark_settings = { :api_token => ENV["POSTMARK_ID"] }
 
     config.generators do |generate|
       generate.assets false

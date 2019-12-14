@@ -1,0 +1,27 @@
+<%= simple_form_for @user, remote: true do |f| %>
+  <div class="form-group">
+    <%= f.input :first_name,
+                  required: false,
+                  label: false,
+                  placeholder: "Prénom",
+                  class: "text-field-3 w-input" %>
+  </div>
+  <div class="form-group">
+    <%= f.input :last_name,
+                  required: false,
+                  label: false,
+                  placeholder: "Nom",
+                  class: "text-field-3 w-input" %>
+  </div>
+  <div class="form-group">
+    <%= f.input :email,
+          required: false,
+          label: false,
+          placeholder: "Email",
+          autofocus: true,
+          class: "text-field-3 w-input" %>
+  </div>
+  <div class="form-group">
+    <%= f.button :submit, "Validez", id: "validation", class: "button_p-2 w-button", data: { "disable-with": "Validez" }%>
+  </div>
+<% end %>

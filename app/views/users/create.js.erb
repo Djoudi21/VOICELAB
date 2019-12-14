@@ -1,0 +1,7 @@
+$(() => {
+  $('#new_user').html('<%= j render "users/form", user: @user%>');
+  <% if @user.errors.none? %>
+    swal("Merci!", "Votre demande est validée", "success");
+  <% end %>
+});
+
