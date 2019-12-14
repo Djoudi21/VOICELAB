@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # Deliver the signup email
-      UserMailer.thanks(@user).deliver
+      UserMailer.thanks(@user).deliver_now
       @user = User.new
       respond_to do |format|
         format.html { redirect_to root_path }
