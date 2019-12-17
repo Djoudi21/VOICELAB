@@ -2067,6 +2067,48 @@ a:hover {
   margin-top: 75px;
 }
 
+.form02 {
+  position: relative;
+  height: 100%;
+  max-width: 590px;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px 0 rgba(0, 96, 255, 0.15);
+  margin-left: 300px;
+  margin-top: 75px;
+}
+
+.form02-title {
+  background-color: blue;
+  padding: 15px 30px;
+  color: white;
+  box-shadow: 0 0px 40px 0 rgba(0, 96, 255, 0.15);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.form02-body {
+  padding: 15px 30px;
+}
+
+.form02-body-section {
+  border-left: 2px solid blue;
+  padding: 10px 10px;
+  border-radius: 2px;
+  margin: 25px 0px;
+}
+
+.form02-section-number {
+  border: 1px solid blue;
+  border-radius: 5px 20px 5px;
+  padding: 10px;
+  background-color: blue;
+  color: white;
+  margin: 5px;
+}
+
+.hidden {
+  display: none;
+}
 .form_error_line {
   width: 1px;
   min-height: 23px;

@@ -1,53 +1,56 @@
 <div class="w-container">
   <div class="form-access w-form">
     <div class="cta07_main_wrap disabled-form" id="disabled-form">
-      <h3>2. Contrat d'autorisation d'accès à votre compte Google Drive par Voicelab</h3>
+      <h8>2. Contrat d'autorisation d'accès à votre compte Google Drive par Voicelab</h8>
       <div id="popup"  class=" form01 margin-left">
         <div id="popup-content">
-          <p class="title" style="font-weightbold">🔒 <em>{{ c.client.body.name }}</em>, de <em>{{ c.client.body.company }}</em>, désire accéder à vos données.</p>
+          <div class="contract-title">
+            <h3><em>{{ c.client.body.name }}</em>, de <em>{{ c.client.body.company }}</em>, désire accéder à vos données</h3>
+          </div>
+          <!-- <p class="title"><em>{{ c.client.body.name }}</em>, de <em>{{ c.client.body.company }}</em>, désire accéder à vos données.</p> -->
           <div v-if="hasContractual" class="indent">
-            <p style="font-weight: bold">Cette application accèdera aux données suivantes:</p>
+            <p>Cette application accèdera aux données suivantes:</p>
             <ul>
-              <li v-for="scope in c.base.contractual.scopes" style="list-style: none"><alias-scope :value="scope" /></li>
+              <li v-for="scope in c.base.contractual.scopes"><alias-scope :value="scope" /></li>
               </ul>
-              <p style="font-weight: bold">Ces données seront utilisées pour les raisons suivantes<span v-if="c.base.contractual.usages.length>1">s</span>:</p>
+              <p>Ces données seront utilisées pour les raisons suivantes<span v-if="c.base.contractual.usages.length>1">s</span>:</p>
               <ul>
-                <li v-for="usage in c.base.contractual.usages" style="list-style: none">{{ usage }}</code></li>
+                <li v-for="usage in c.base.contractual.usages">{{ usage }}</code></li>
             </ul>
           </div>
           <div v-if="hasConsent">
             <div v-for="consent in c.base.consent" class="indent">
-              <p style="font-weight: bold">ette application souhaite avoir votre consentement pour accéder aux données suivantes:</p>
+              <p>ette application souhaite avoir votre consentement pour accéder aux données suivantes:</p>
               <ul>
-                <li v-for="(scope, i) in consent.scopes" style="list-style: none">
+                <li v-for="(scope, i) in consent.scopes">
                   Consentez-vous également à partager ce type de données <alias-scope :value="scope"></alias-scope>?
                   <input type="radio" v-model="scope.agree" :value="true">Oui
                   <input type="radio" v-model="scope.agree" :value="false">Non
                 </li>
               </ul>
-              <p style="font-weight: bold">Ces données seront utilisées pour la raison suivante<span v-if="consent.usages.length>1">s</span>:</p>
+              <p>Ces données seront utilisées pour la raison suivante<span v-if="consent.usages.length>1">s</span>:</p>
               <ul>
-                <li v-for="usage in consent.usages" style="list-style: none">{{ usage }}</code></li>
+                <li v-for="usage in consent.usages">{{ usage }}</code></li>
             </ul>
           </div>
         </div>
         <div v-if="hasLegitimate" class="indent">
-          <p style="font-weight: bold">Cette application recquiert l'accès à vos données legitimes por la raison suivante:</p>
+          <p>Cette application recquiert l'accès à vos données legitimes por la raison suivante:</p>
           <p>{{ c.base.legitimate.reason }}</p>
           <div v-for="legitimate in c.base.legitimate.groups" class="indent">
-            <p style="font-weight: bold">Cette application demande l'accès aux données suivantes:</p>
+            <p>Cette application demande l'accès aux données suivantes:</p>
             <ul>
-              <li v-for="scope in legitimate.scopes" style="list-style: none"><alias-scope :value="scope" /></li>
+              <li v-for="scope in legitimate.scopes"><alias-scope :value="scope" /></li>
               </ul>
-              <p style="font-weight: bold">Ces données seront utilisées pour la raison suivante<span v-if="legitimate.usages.length>1">s</span>:</p>
+              <p>Ces données seront utilisées pour la raison suivante<span v-if="legitimate.usages.length>1">s</span>:</p>
               <ul>
-                <li v-for="usage in legitimate.usages" style="list-style: none">{{ usage }}</code></li>
+                <li v-for="usage in legitimate.usages">{{ usage }}</code></li>
             </ul>
           </div>
         </div>
-        <p style="font-weight: bold">Vos données:</p>
+        <p>Vos données:</p>
         <ul>
-          <li style="list-style: none">
+          <l>
             <verb :value="true">seront</verb> paratagées avec <em>{{c.client.body.name}}</em>
             <span v-if="c.legal && c.legal.destination">
               et <em v-for="(t, idx) in c.legal.destination">{{t}}<span v-if="idx+1 < c.legal.destination.length">, </span></em></span>;
