@@ -1,0 +1,134 @@
+<div class="w-container">
+  <div class="form-access w-form">
+    <div class="cta07_main_wrap disabled-form" id="disabled-form">
+      <h8>2. Contrat d'autorisation d'accès à votre compte Google Drive par Voicelab</h8>
+    <div class="form02">
+      <div class="form02-title">
+        <h3><em>{{ c.client.body.name }}</em>, de <em>{{ c.client.body.company }}</em>, désire accéder à vos données</h3>
+      </div>
+      <div class="form02-body">
+        <div id="popup-content">
+          <div class="form02-body-section">
+            <p class="form02-section-number">1</p>
+            <div v-if="hasContractual" class="form02-body-section-content">
+              <p class="bolded">Cette application accèdera aux données suivantes:</p>
+              <ul>
+                <li v-for="scope in c.base.contractual.scopes"><alias-scope :value="scope" /></li>
+                </ul>
+                <p class="bolded">Ces données seront utilisées pour les raisons suivantes<span v-if="c.base.contractual.usages.length>1">s</span>:</p>
+                <ul>
+                  <li v-for="usage in c.base.contractual.usages">{{ usage }}</code></li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <!-- <a id="element-1" class="test" href="#section-2" onClick="slideDown('section-2')">Suivant</a> -->
+          <p id="element-1" class="test" onClick="slideDown('section-2')">Suivant</p>
+          </div>
+          <div v-if="hasConsent">
+            <div id="section-2" class="hidden-section">
+              <div class="form02-body-section">
+                <p class="form02-section-number">2</p>
+                <div v-for="consent in c.base.consent" class="form02-body-section-content">
+                  <p class="bolded">Cette application souhaite avoir votre consentement pour accéder aux données suivantes:</p>
+                  <ul>
+                    <li v-for="(scope, i) in consent.scopes">
+                      Consentez-vous également à partager ce type de données <alias-scope :value="scope"></alias-scope>?
+                      <input type="radio" v-model="scope.agree" :value="true">Oui
+                      <input type="radio" v-model="scope.agree" :value="false">Non
+                    </li>
+                  </ul>
+                  <p class="bolded">Ces données seront utilisées pour la raison suivante<span v-if="consent.usages.length>1">s</span>:</p>
+                  <ul>
+                    <li v-for="usage in consent.usages">{{ usage }}</code></li>
+                </ul>
+              </div>
+            </div>
+            <div>
+            <p id="element-2" class="test" onClick="slideDown('section-3')">Suivant</p>
+            </div>
+          </div>
+          <div id="section-3" class="hidden-section">
+            <div id="section3" class="form02-body-section">
+              <p class="form02-section-number">3</p>
+              <div v-if="hasLegitimate" class="form02-body-section-content">
+                <p class="bolded">Cette application recquiert l'accès à vos données legitimes pour la raison suivante:</p>
+                <p>{{ c.base.legitimate.reason }}</p>
+                <div v-for="legitimate in c.base.legitimate.groups" class="indent">
+                  <p>Cette application demande l'accès aux données suivantes:</p>
+                  <ul>
+                    <li v-for="scope in legitimate.scopes"><alias-scope :value="scope" /></li>
+                    </ul>
+                    <p class="bolded">Ces données seront utilisées pour la raison suivante<span v-if="legitimate.usages.length>1">s</span>:</p>
+                    <ul>
+                      <li v-for="usage in legitimate.usages">{{ usage }}</code></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div>
+            <p id="element-3" class="test" onClick="slideDown('section-4')">Suivant</p>
+            </div>
+          </div>
+          <div id="section-4" class="hidden-section">
+            <div class="form02-body-section">
+              <p class="form02-section-number">4</p>
+              <div  class="form02-body-section-content">
+                <p class="bolded">Vos données:</p>
+                <ul>
+                  <l>
+                    <verb :value="true" class="bolded">seront</verb> paratagées avec <em>{{c.client.body.name}}</em>
+                    <span v-if="c.legal && c.legal.destination">
+                      et <em v-for="(t, idx) in c.legal.destination">{{t}}<span v-if="idx+1 < c.legal.destination.length">, </span></em></span>;
+                  </li>
+                  <li style="list-style: none">
+                    <verb :value="c.legal.transfer_outside_eea" class="bolded">ne seront pas</verb> transferées en dehors de L'Union Européenne(UE);
+                  </li>
+                  <li style="list-style: none">
+                    <verb :value="c.legal.evaluation_notation_rating_profiling" class="bolded">ne seront pas</verb> utilisées pour l'évaluation, la notation, ou pour profilages;
+                  </li>
+                  <li style="list-style: none">
+                    <verb :value="c.legal.automated_decision" class="bolded">ne seront pas</verb> utilisées pour générer une décision automatique vous concernant;
+                  </li>
+                  <li style="list-style: none">
+                    <verb :value="c.legal.automated_surveillance" class="bolded">ne seront pas</verb> utilisées pour une surveillance auotmatique;
+                  </li>
+                  <li style="list-style: none">
+                    <verb :value="c.legal.mixing_reasonable_expectations" class="bolded">ne seront pas</verb> crossed or mixed beyond reasonnable expectations;
+                  </li>
+                  <li style="list-style: none">
+                    <verb :value="c.legal.innovative_reasonable_expectations" class="bolded">ne seront pas</verb> utilisées de façon innovante ou avec des technologies innovantes ou des systemes organisationnels innovants au dela d'attentes raisonnables;
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div>
+            <p id="element-4" class="test" onClick="slideDown('section-5')">Suivant</p>
+            </div>
+          </div>
+          <div id="section-5" class="hidden-section ">
+            <div style="margin-top: 50px;">
+              <p class="bolded">Vos données seront stockées pour une durée de<em>{{c.legal.storage_duration}}</em>.</p>
+              <p>
+                <a v-if="c.legal.tos_url" :href="c.legal.tos_url" target="_blank">Privacy policy</a> - <a :href="'mail:' + c.legal.email_dpo">Contacter le DPO</a>
+              </p>
+              <p class="bolded">Vous avez le droit d'accéder, de modifier, transferer ou supprimer les données que vous avez collecté comme la loi vous y autorise.</p>
+              <div class="flex">
+                <button v-on:click="agree" onClick="swal('MERCI', 'Vous avez accepté le contrat', 'success')" id="yes" class="button ghost w-button" disabled>J'accepte</button>
+                <button v-on:click="deny" onClick="swal('DESOLÉ', 'Vous avez refusé le contrat', 'error')" id="no" class="button ghost w-button" disabled>Je refuse</button>
+              </div>
+              <p><a href="#" id="advanced" v-on:click="toggleAdvanced">Advanced</a></p>
+              <div id="advanced-info" v-show="showAdvanced">
+                <p>
+                  Request date: <code>{{c.client.date}}</code>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+

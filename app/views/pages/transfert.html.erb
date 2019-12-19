@@ -4,7 +4,8 @@
       <div class="w-container">
         <div class="hero-usecase--text-left">
           <%= image_tag("cfakepathlogo-blanc-530.png", height: 30, class: "image-11") %>
-          <div class="sizejumbo-text sizejumbo-top-clear usecase-title"><strong>Participez</strong> à La recherche sur l&#x27;iA ET les données vocales, la recherche Française est en retard.</div>
+          <div class="sizejumbo-text sizejumbo-top-clear usecase-title"><strong>Participez</strong> à La recherche sur l&#x27;iA ET les données vocales, la recherche Française est en retard.
+          </div>
           <div class="lnd_details">Vous souhaitez récupérer vos données? <br>
             Lisez les instructions ci-dessous.
           </div>
@@ -25,136 +26,41 @@
         </div>
       </div>
     </div>
-    <div>
-      <div class="w-container">
-        <div class="">
-          <h3>1. Connectez-vous a votre lieu de stockage</h3>
-          <p class="paragraph-alias">Veuillez selectioner votre lieu de stockage</p>
-        </div>
-        <div class="cta07_button_wrap">
-          <%= link_to('/api/storage/gdrive/link?redirect=https%3A%2F%2Fvoicelabs.gdpr.dev%2Ftransfert%2F', class: 'btn', id: 'click') do %>
-            <div class="icons8-google-drive"></div>
-          <% end %>
-          <%= button_tag('', disabled: true, class: 'btn btn-disabled') do %>
-            <div class="icons8-dropbox"></div>
-          <% end %>
-        </div>
+    <div class="w-container">
+      <div class="">
+        <h3>1. Connectez-vous a votre lieu de stockage</h3>
+        <p class="paragraph-alias">Veuillez selectioner votre lieu de stockage</p>
+      </div>
+      <div class="cta07_button_wrap">
+        <%= link_to('/api/storage/gdrive/link?redirect=https%3A%2F%2Fvoicelabs.gdpr.dev%2Ftransfert%2F', class: 'btn', id: 'click') do %>
+          <div class="icons8-google-drive"></div>
+        <% end %>
+        <%= button_tag('', disabled: true, class: 'btn btn-disabled') do %>
+          <div class="icons8-dropbox"></div>
+        <% end %>
       </div>
     </div>
     <div>
-      <div class="w-container">
-        <div class="form-access w-form">
-          <div class="cta07_main_wrap disabled-form" id="disabled-form">
-            <h3>2. Contrat d'autorisation d'accès à votre compte Google Drive par Voicelab</h3>
-            <div id="popup"  class=" form01 margin-left">
-              <div id="popup-content">
-                <p class="title" style="font-weightbold">🔒 <em>{{ c.client.body.name }}</em>, de <em>{{ c.client.body.company }}</em>, désire accéder à vos données.</p>
-                <div v-if="hasContractual" class="indent">
-                  <p style="font-weight: bold">Cette application accèdera aux données suivantes:</p>
-                  <ul>
-                    <li v-for="scope in c.base.contractual.scopes" style="list-style: none"><alias-scope :value="scope" /></li>
-                    </ul>
-                    <p style="font-weight: bold">Ces données seront utilisées pour les raisons suivantes<span v-if="c.base.contractual.usages.length>1">s</span>:</p>
-                    <ul>
-                      <li v-for="usage in c.base.contractual.usages" style="list-style: none">{{ usage }}</code></li>
-                  </ul>
-                </div>
-                <div v-if="hasConsent">
-                  <div v-for="consent in c.base.consent" class="indent">
-                    <p style="font-weight: bold">ette application souhaite avoir votre consentement pour accéder aux données suivantes:</p>
-                    <ul>
-                      <li v-for="(scope, i) in consent.scopes" style="list-style: none">
-                        Consentez-vous également à partager ce type de données <alias-scope :value="scope"></alias-scope>?
-                        <input type="radio" v-model="scope.agree" :value="true">Oui
-                        <input type="radio" v-model="scope.agree" :value="false">Non
-                      </li>
-                    </ul>
-                    <p style="font-weight: bold">Ces données seront utilisées pour la raison suivante<span v-if="consent.usages.length>1">s</span>:</p>
-                    <ul>
-                      <li v-for="usage in consent.usages" style="list-style: none">{{ usage }}</code></li>
-                  </ul>
-                </div>
-              </div>
-              <div v-if="hasLegitimate" class="indent">
-                <p style="font-weight: bold">Cette application recquiert l'accès à vos données legitimes por la raison suivante:</p>
-                <p>{{ c.base.legitimate.reason }}</p>
-                <div v-for="legitimate in c.base.legitimate.groups" class="indent">
-                  <p style="font-weight: bold">Cette application demande l'accès aux données suivantes:</p>
-                  <ul>
-                    <li v-for="scope in legitimate.scopes" style="list-style: none"><alias-scope :value="scope" /></li>
-                    </ul>
-                    <p style="font-weight: bold">Ces données seront utilisées pour la raison suivante<span v-if="legitimate.usages.length>1">s</span>:</p>
-                    <ul>
-                      <li v-for="usage in legitimate.usages" style="list-style: none">{{ usage }}</code></li>
-                  </ul>
-                </div>
-              </div>
-              <p style="font-weight: bold">Vos données:</p>
-              <ul>
-                <li style="list-style: none">
-                  <verb :value="true">seront</verb> paratagées avec <em>{{c.client.body.name}}</em>
-                  <span v-if="c.legal && c.legal.destination">
-                    et <em v-for="(t, idx) in c.legal.destination">{{t}}<span v-if="idx+1 < c.legal.destination.length">, </span></em></span>;
-                </li>
-                <li style="list-style: none">
-                  <verb :value="c.legal.transfer_outside_eea">ne seront pas</verb> transferées en dehors de L'Union Européenne(UE);
-                </li>
-                <li style="list-style: none">
-                  <verb :value="c.legal.evaluation_notation_rating_profiling">ne seront pas</verb> utilisées pour l'évaluation, la notation, ou pour profilages;
-                </li>
-                <li style="list-style: none">
-                  <verb :value="c.legal.automated_decision">ne seront pas</verb> utilisées pour générer une décision automatique vous concernant;
-                </li>
-                <li style="list-style: none">
-                  <verb :value="c.legal.automated_surveillance">ne seront pas</verb> utilisées pour une surveillance auotmatique;
-                </li>
-                <li style="list-style: none">
-                  <verb :value="c.legal.mixing_reasonable_expectations">ne seront pas</verb> crossed or mixed beyond reasonnable expectations;
-                </li>
-                <li style="list-style: none">
-                  <verb :value="c.legal.innovative_reasonable_expectations">ne seront pas</verb> utilisées de façon innovante ou avec des technologies innovantes ou des systemes organisationnels innovants au dela d'attentes raisonnables;
-                </li>
-              </ul>
-              <p style="font-weight: bold">Vos données seront stockées pour une durée de<em>{{c.legal.storage_duration}}</em>.</p>
-              <p>
-                <a v-if="c.legal.tos_url" :href="c.legal.tos_url" target="_blank">Privacy policy</a> - <a :href="'mail:' + c.legal.email_dpo">Contacter le DPO</a>
-              </p>
-              <p style="font-weight: bold">Vous avez le droit d'accéder, de modifier, transferer ou supprimer les données que vous avez collecté comme la loi vous y autorise.</p>
-              <div class="flex">
-                <button v-on:click="agree" id="yes" class="button ghost w-button" disabled>J'accepte</button>
-                <button v-on:click="deny" id="no" class="button ghost w-button" disabled>Je refuse</button>
-              </div>
-              <p><a href="#" id="advanced" v-on:click="toggleAdvanced">Advanced</a></p>
-              <div id="advanced-info" v-show="showAdvanced">
-                <p>
-                  Request date: <code>{{c.client.date}}</code>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <%= render 'pages/contract' %>
     </div>
   </div>
-  <div>
-    <div class="container padding-40 w-container">
-      <div class="form-access w-form">
-        <div id="video" class="cta07_main_wrap disabled-form">
-          <h3>4. Validez votre demande</h3>
-        </div>
-        <div style="margin-left: 300px">
-          <iframe
+  <div class="container padding-40 w-container">
+    <div class="form-access w-form">
+      <div id="video" class="cta07_main_wrap disabled-form">
+        <h3>4. Validez votre demande</h3>
+      </div>
+      <div style="margin-left: 300px">
+        <iframe
               width="560"
               height="315"
               src="https://www.youtube.com/embed/YNpERzRABNY"
               frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
-          </iframe>
-        </div>
-        <div class="card-block-single padding">
-          <%= link_to 'Obtenir mes données', "https://takeout.google.com/settings/takeout?pli=1", class: "bt-data-copy noline blue w-button" %>
-        </div>
+        </iframe>
+      </div>
+      <div class="card-block-single padding">
+        <%= link_to 'Obtenir mes données', "https://takeout.google.com/settings/takeout?pli=1", class: "bt-data-copy noline blue w-button" %>
       </div>
     </div>
   </div>
@@ -186,11 +92,6 @@
       </a>
     </div>
     <div class="f01_columns w-row">
-      <!-- <div class="f01_column w-col w-col-2 w-col-small-small-stack">
-      <div class="f01_title">Main links</div>
-      <a href="#" class="f01_link">For users</a>
-      <a href="#" class="f01_link">For business</a>
-    </div> -->
       <div class="f01_column w-col w-col-2 w-col-small-small-stack">
         <div class="f01_title">About us</div>
         <%= link_to 'Contact', requests_new_path, class: "f01_link" %>
@@ -221,9 +122,11 @@
 </div>
 <!-- <script type="application/javascript" src="/assets/javascript/plugins/request.js"></script>
  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jump.js/dist/jump.min.js"></script>
 <script>
   // let tata = {"type":"alias.contract","client":{"type":"anychain.signature","date":"Mon, 23 Sep 2019 21:20:23 GMT","signer":{"_bytes":"5HfQie9XLS_WSg3qHAO0nID2NELhxsW6Y0FVsPEPA6k"},"body":{"type":"alias.client.decl","crypto":{"sign":{"bytes":"5HfQie9XLS_WSg3qHAO0nID2NELhxsW6Y0FVsPEPA6k"},"box":{"bytes":"rYCKMvxV5fBt82dL17-cnOIppFv29ArnAXiJEhKQbBg"}},"name":"Voice Labs","desc":"Teach machines how human talks","domain":"demo.gdpr.dev","company":"Voice Labs Inc"},"signature":{"_bytes":"jl-pIUk5o0eQSSY7l4eeokTCx_w3wXPDvItkJKZ3bm5RMc41GBu_Tm8Ywx_SLbcTAHXNmWC8GiGOcp2hr96vBA"}},"legal":{"accept_users_right_access_modify_transfer_delete":true,"automated_decision":false,"automated_surveillance":false,"destination":["Snips Inc","Voxist","Voicelow","Roger Voice"],"email_dpo":"dpo@voicelabs.co","evaluation_notation_rating_profiling":false,"innovative_reasonable_expectations":false,"mixing_reasonable_expectations":false,"storage_duration":"2 years after your Voice Labs account is closed","subprocessors":[],"tos_url":"https://voicelabs.co/tos/","transfer_outside_eea":false,"usage":"(global) Manipulate your Audio recordings lol"},"base":{"consent":[{"scopes":[{"provider":"google","path":"my_activity.assistant"},{"provider":"amazon","path":"alexa"}],"usages":["Train our Speech-to-Text algorithm"]}],"contractual": {"scopes": [{"provider": "google", "path": "my_account.email"}], "usages": ["To keep communication"]}, "legitimate": {"groups": [{"scopes": [{"provider": "google", "path": "my_account.connection_history"}], "usages": ["Detect fraudulent activity"]}], "reason": "For satefy reasons"}}, "network":{"redirectEndpoint": "/cb/"}};
-  
+
   Vue.component('verb', {
       props: ['value'],
       data: () => { return {}; },
@@ -231,13 +134,13 @@
   <span v-if="value"><b style="text-transform: uppercase;"><slot></slot></b></span><span v-else-if="!value"><b style="text-transform: uppercase;"><slot></slot> NOT</b></span>
   `,
   });
-  
+
   var vue = null;
-  
+
   function deepcloneJSON(x) {
       return JSON.parse(JSON.stringify(x));
   }
-  
+
   function getContractCallbackURL(contract) {
       const network = contract.network || {};
       const scheme = network.scheme || "https";
@@ -247,64 +150,64 @@
       const url = `${scheme}://${domain}${endpoint}`;
       return url;
   }
-  
+
   function cbReturnError(contract, error, desc, uri) {
       // const state = (new URL(window.location.href)).searchParams.get('state');
-  
+
       // let url = getContractCallbackURL(contract) + "?";
       // url = url + "error=" + encodeURIComponent(error);
       // if (desc)  url = url + "&error_description=" + encodeURIComponent(desc);
       // if (uri)   url = url + "&error_uri=" + encodeURIComponent(uri);
       // if (state) url = url + "&state=" + encodeURIComponent(state);
-  
+
       // window.location.href = url;
       swal("Refus", "Votre contrat n'est pas  validé", "error");
   }
-  
+
   function cbReturn(contract, grant, bind) {
       // const state = (new URL(window.location.href)).searchParams.get('state');
-  
+
       // let url = getContractCallbackURL(contract) + "?";
       // url = url + "code=" + encodeURIComponent(chain.toToken(grant));
       // url = url + "&bind=" + encodeURIComponent(chain.toToken(bind));
       // if (state) url = url + "&state=" + encodeURIComponent(state);
-  
+
       // //console.log("redirect to", url);
       // window.location.href = url;
       swal("Validation", "Votre contrat est validé", "success");
   }
-  
+
   async function run() {
       await authed();
-  
+
       let contractVoicelab = {"type":"alias.contract","client":{"type":"anychain.signature","date":"Mon, 23 Sep 2019 21:20:23 GMT","signer":{"__bytes":"5HfQie9XLS_WSg3qHAO0nID2NELhxsW6Y0FVsPEPA6k"},"body":{"type":"alias.client.decl","crypto":{"sign":{"__bytes":"5HfQie9XLS_WSg3qHAO0nID2NELhxsW6Y0FVsPEPA6k"},"box":{"__bytes":"rYCKMvxV5fBt82dL17-cnOIppFv29ArnAXiJEhKQbBg"}},"name":"Voice Labs","desc":"Teach machines how human talks","domain":"demo.gdpr.dev","company":"Voice Labs Inc"},"signature":{"__bytes":"jl-pIUk5o0eQSSY7l4eeokTCx_w3wXPDvItkJKZ3bm5RMc41GBu_Tm8Ywx_SLbcTAHXNmWC8GiGOcp2hr96vBA"}},"legal":{"accept_users_right_access_modify_transfer_delete":true,"automated_decision":false,"automated_surveillance":false,"destination":["Snips Inc","Voxist","Voicelow","Roger Voice"],"email_dpo":"dpo@voicelabs.co","evaluation_notation_rating_profiling":false,"innovative_reasonable_expectations":false,"mixing_reasonable_expectations":false,"storage_duration":"2 years after your Voice Labs account is closed","subprocessors":[],"tos_url":"https://voicelabs.co/tos/","transfer_outside_eea":false,"usage":"(global) Manipulate your Audio recordings lol"},"base":{"consent":[{"scopes":[{"provider":"google","path":"my_activity.assistant"},{"provider":"amazon","path":"alexa"}],"usages":["Train our Speech-to-Text algorithm"]}],"contractual": {"scopes": [{"provider": "google", "path": "my_account.email"}], "usages": ["To keep communication"]}, "legitimate": {"groups": [{"scopes": [{"provider": "google", "path": "my_account.connection_history"}], "usages": ["Detect fraudulent activity"]}], "reason": "For satefy reasons"}}, "network":{"redirectEndpoint": "/cb/"}}
-  
+
       const {userSeed, box} = currentSession();
       const idty = openBox(box, userSeed);
-  
+
       const selfPublicKey = idty.sign.publicKey;
       if (!selfPublicKey) { throw "no sign publicKey set"; }
-  
+
       const url = new URL(window.location.href);
-  
+
       // check contract
             var contract = chain.fromJSON(contractVoicelab);
-  
+
           if (contract.type != 'alias.contract') {
               throw "not a contract";
           }
-  
+
       const hasContractual = contract.base.contractual && contract.base.contractual.scopes.length != 0 && contract.base.contractual.usages.length != 0;
       const hasConsent = contract.base.consent && contract.base.consent.length != 0;
       const hasLegitimate = contract.base.legitimate && contract.base.legitimate.groups.length != 0;
-  
+
       const draftContract = deepcloneJSON(contract);
       for (const consent of draftContract.base.consent) {
           for (const scope of consent.scopes) {
               scope.agree = false;
           }
       }
-  
+
       vue = new Vue({
           el: "#popup",
           data: {
@@ -328,7 +231,7 @@
                       }
                       consentedScopes.push(scopes);
                   }
-  
+
                   const legitimateScopes = [];
                   for (const legitimate of this.c.base.legitimate.groups) {
                       const scopes = [];
@@ -338,7 +241,7 @@
                       }
                       legitimateScopes.push(scopes);
                   }
-  
+
                   let grant = {
                       type: "alias.grant",
                       contract: contract,//chain.fold(contract),
@@ -349,10 +252,10 @@
                           legitimate: legitimateScopes,
                       },
                   };
-  
+
                   grant = chain.sign(idty.sign, grant);
                   console.log("grant:", grant);
-  
+
                   $.ajax({
                       method: 'POST',
                       url: "/api/contract/grant",
@@ -367,10 +270,11 @@
               },
           }
       });
-  
+
       $("#popup").show();
   };
 </script>
+<script src="scroll-animate-to.min.js"></script>
 <script>
   //recuperer l'element html
   const gdrive = document.getElementById('click');
@@ -382,7 +286,7 @@
     form.classList.add('enabled-form');
   const buttonAccept = document.getElementById('yes').disabled=false;
   const buttonDeny = document.getElementById('no').disabled=false;
-  
+
   });
   const buttonAccept = document.getElementById('yes');
   buttonAccept.addEventListener('click', (event) => {
@@ -390,6 +294,12 @@
     video.classList.add('enabled-form');
   });
 </script>
+<script>
+  function slideDown(el) {
+    const elem = document.getElementById(el);
+    elem.classList.toggle('visible-section');
+  }
+  </script>
 <script type="applicaton/javascript" src="/javascript/index.js"></script>
 <!--     <script type="applicaton/javascript" src="/javascripts/webflow.js"></script -->
 <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
