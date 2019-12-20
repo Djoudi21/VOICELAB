@@ -2070,7 +2070,7 @@ a:hover {
 .form02 {
   position: relative;
   height: 100%;
-  max-width: 590px;
+  max-width: 600px;
   border-radius: 10px;
   box-shadow: 0 20px 40px 0 rgba(0, 96, 255, 0.15);
   margin-left: 300px;
@@ -2127,6 +2127,14 @@ a:hover {
 }
 .bolded {
   font-weight: bold;
+}
+
+.form02-li {
+  margin: 10px 0px 20px 0px;
+  list-style: none;
+}
+.form02-p {
+  margin-bottom: 20px;
 }
 .test {
   width:10%;

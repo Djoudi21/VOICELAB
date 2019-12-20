@@ -47,11 +47,11 @@
   <div class="container padding-40 w-container">
     <div class="form-access w-form">
       <div id="video" class="cta07_main_wrap disabled-form">
-        <h3>4. Validez votre demande</h3>
+        <h3>4. Accédez à vos données</h3>
       </div>
-      <div style="margin-left: 300px">
+      <div style="margin-left: 200px;">
         <iframe
-              width="560"
+              width="75%"
               height="315"
               src="https://www.youtube.com/embed/YNpERzRABNY"
               frameborder="0"
@@ -60,7 +60,7 @@
         </iframe>
       </div>
       <div class="card-block-single padding">
-        <%= link_to 'Obtenir mes données', "https://takeout.google.com/settings/takeout?pli=1", class: "bt-data-copy noline blue w-button" %>
+        <%= link_to 'Obtenir mes données', "https://takeout.google.com/settings/takeout?pli=1", class: "bt-data-copy noline blue w-button", target: :_blank %>
       </div>
     </div>
   </div>
@@ -94,7 +94,7 @@
     <div class="f01_columns w-row">
       <div class="f01_column w-col w-col-2 w-col-small-small-stack">
         <div class="f01_title">About us</div>
-        <%= link_to 'Contact', requests_new_path, class: "f01_link" %>
+        <%= link_to 'Contact', request_path, class: "f01_link" %>
         <a href="https://medium.com/@gdprtoken" class="f01_link">Blog</a>
       </div>
       <div class="f01_column w-col w-col-2 w-col-small-small-stack">
@@ -120,13 +120,7 @@
     </div>
   </div>
 </div>
-<!-- <script type="application/javascript" src="/assets/javascript/plugins/request.js"></script>
- -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jump.js/dist/jump.min.js"></script>
 <script>
-  // let tata = {"type":"alias.contract","client":{"type":"anychain.signature","date":"Mon, 23 Sep 2019 21:20:23 GMT","signer":{"_bytes":"5HfQie9XLS_WSg3qHAO0nID2NELhxsW6Y0FVsPEPA6k"},"body":{"type":"alias.client.decl","crypto":{"sign":{"bytes":"5HfQie9XLS_WSg3qHAO0nID2NELhxsW6Y0FVsPEPA6k"},"box":{"bytes":"rYCKMvxV5fBt82dL17-cnOIppFv29ArnAXiJEhKQbBg"}},"name":"Voice Labs","desc":"Teach machines how human talks","domain":"demo.gdpr.dev","company":"Voice Labs Inc"},"signature":{"_bytes":"jl-pIUk5o0eQSSY7l4eeokTCx_w3wXPDvItkJKZ3bm5RMc41GBu_Tm8Ywx_SLbcTAHXNmWC8GiGOcp2hr96vBA"}},"legal":{"accept_users_right_access_modify_transfer_delete":true,"automated_decision":false,"automated_surveillance":false,"destination":["Snips Inc","Voxist","Voicelow","Roger Voice"],"email_dpo":"dpo@voicelabs.co","evaluation_notation_rating_profiling":false,"innovative_reasonable_expectations":false,"mixing_reasonable_expectations":false,"storage_duration":"2 years after your Voice Labs account is closed","subprocessors":[],"tos_url":"https://voicelabs.co/tos/","transfer_outside_eea":false,"usage":"(global) Manipulate your Audio recordings lol"},"base":{"consent":[{"scopes":[{"provider":"google","path":"my_activity.assistant"},{"provider":"amazon","path":"alexa"}],"usages":["Train our Speech-to-Text algorithm"]}],"contractual": {"scopes": [{"provider": "google", "path": "my_account.email"}], "usages": ["To keep communication"]}, "legitimate": {"groups": [{"scopes": [{"provider": "google", "path": "my_account.connection_history"}], "usages": ["Detect fraudulent activity"]}], "reason": "For satefy reasons"}}, "network":{"redirectEndpoint": "/cb/"}};
-
   Vue.component('verb', {
       props: ['value'],
       data: () => { return {}; },
@@ -274,7 +268,6 @@
       $("#popup").show();
   };
 </script>
-<script src="scroll-animate-to.min.js"></script>
 <script>
   //recuperer l'element html
   const gdrive = document.getElementById('click');
@@ -299,7 +292,23 @@
     const elem = document.getElementById(el);
     elem.classList.toggle('visible-section');
   }
-  </script>
+</script>
+<script>
+
+  function clicked() {
+  const yes = document.getElementById('yes');
+  const no = document.getElementById('no');
+  const part4 = document.getElementById('video');
+    if(yes) {
+        swal('MERCI', 'Vous avez accepté le contrat', 'success');
+        part4.classList.remove('disabled-form');
+        yes.disabled = true;
+    } else if (no) {
+        swal('DESOLÉ', 'Vous avez refusé le contrat', 'error');
+        no.disabled = true;
+    }
+  }
+</script>
 <script type="applicaton/javascript" src="/javascript/index.js"></script>
 <!--     <script type="applicaton/javascript" src="/javascripts/webflow.js"></script -->
 <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
