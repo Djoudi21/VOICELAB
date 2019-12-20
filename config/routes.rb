@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'requests/index', to: "requests#index"
-  get 'requests/new', to: "requests#new"
+  get 'requests/new', to: "requests#new", as: :request
   post 'requests', to: "requests#create"
   # devise_for :users
   # devise_for :users,
